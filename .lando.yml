@@ -1,0 +1,4 @@
+name: backdrop
+recipe: backdrop
+config:
+  webroot: .
