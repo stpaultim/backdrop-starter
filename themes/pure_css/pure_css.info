@@ -1,0 +1,24 @@
+name = PureCSS
+description = A mobile theme for Backdrop CMS based on Yahoo PureCSS
+backdrop = 1.x
+type = theme
+version = 1.x-1.1
+
+; stylesheets[all][] = css/style.css
+; stylesheets[all][] = css/colors.css
+; stylesheets[print][] = css/print.css
+
+; scripts[] = js/scripts.js
+breakpoints[all] = (min-width: 0em)
+breakpoints[small] = (min-width: 35em)
+breakpoints[large] = (min-width: 55em)
+
+; We need at least one setting for the theme settings page to appear in the
+; menu. Color module provides our defaults, so we just register a dummy setting.
+settings[color] = true
+
+
+; Added by Backdrop CMS packaging script on 2015-08-13
+project = pure_css
+version = 1.x-1.1.1
+timestamp = 1439495103

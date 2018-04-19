@@ -1,0 +1,12 @@
+name = "Node clone"
+description = "Allows users to clone (copy then edit) an existing node."
+backdrop = 1.x
+version = 1.x-1.x
+type = module
+files[] = views/views_handler_field_node_link_clone.inc
+configure = admin/config/content/clone
+
+; Added by Backdrop CMS packaging script on 2016-02-18
+project = node_clone
+version = 1.x-1.1.1
+timestamp = 1455824968
