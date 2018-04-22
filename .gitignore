@@ -1,9 +1,10 @@
 # Ignore this file so it can be changed 
-# .gitignore
+.gitignore
+.lando.yml
 
 # Ignore configuration files that may contain sensitive information.
-# settings*.php
-# sites/*/settings*.php
+settings*.php
+sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
 /files
