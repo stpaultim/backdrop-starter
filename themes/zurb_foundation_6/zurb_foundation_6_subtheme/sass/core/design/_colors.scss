@@ -1,0 +1,64 @@
+/*
+ * Colours
+ *
+ * Colours go in this file
+*/
+@charset "utf-8";
+
+body {
+  color: $black;
+}
+
+h1,
+h2,
+h3 {
+  color: $black;
+}
+
+a,
+.tabs.primary > li > a {
+  color: $primary-color;
+}
+
+a:hover,
+a:focus {
+  color: #197eb2;
+}
+
+.l-wrapper {
+  background-color: $white;
+}
+
+.tabs.primary > li > a:focus,
+.tabs.primary > li > a:hover {
+  color: $black;
+}
+
+.l-header .block-system-main-menu a.active {
+  background: #3e494d;
+  color: $white;
+}
+
+.l-wrapper.juiced-main,
+.l-content.juiced-main {
+  background-color: transparent;
+  z-index: 1;
+}
+
+div[class^="layout--juiced-up"] .tabs {
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 37.5625em) {
+  .l-header .block-system-main-menu ul.menu li ul li:hover {
+    background-color: $white;
+  }
+
+  .l-header .block-system-main-menu a:hover,
+  .l-header .block-system-main-menu a:focus,
+  .l-header .block-system-main-menu a:active {
+    background: rgba(250, 250, 250, 0.30);
+    transition: all .25s ease-in-out;
+    color: $black;
+  }
+}
