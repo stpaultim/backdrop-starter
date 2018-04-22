@@ -33,5 +33,6 @@ td {
   }
 
   header.l-header {
+      padding-top: 20px;
       background-color: #0074bd;
   }
