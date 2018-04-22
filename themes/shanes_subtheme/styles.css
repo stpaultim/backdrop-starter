@@ -31,3 +31,7 @@ td {
   .home-header {
     text-align: center;
   }
+
+  header.l-header {
+      background-color: #0074bd;
+  }
