@@ -1,38 +1,43 @@
 td {
     border: 0.0625rem solid #4b64f000;
-    
-  }
+}
 
 
 
 
-  .shane-class {
-
+.shane-class {
     text-align: center;
+}
 
-    
-  }
-
-  .shane-class h2 {
-
+.shane-class h2 {
     font-size: 1.2rem;
-  }
+}
 
- h6 {
+/* Text */
 
- padding-right: 50px;
-   padding-left:50px; 
-  }
-  /* .shane-class .title {
+a {
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration: underline;
+}
+
+h6 {
+    padding-right: 50px;
+    padding-left:50px;
+}
+
+/* .shane-class .title {
     //max-width: 300px;
-  } */
+} */
 
-  .home-header {
+.home-header {
     text-align: center;
-  }
+}
 
-  header.l-header {
-      padding-top: 20px;
-      background-color: #0074bd;
-  }
+header.l-header {
+    padding-top: 20px;
+    background-color: #0074bd;
+}
+
