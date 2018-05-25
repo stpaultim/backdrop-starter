@@ -1,0 +1,203 @@
+<?php
+/**
+ * @file
+ * Allows node titles to be generated automatically based on tokens.
+ */
+
+define('AUTO_NODETITLE_DISABLED', 0);
+define('AUTO_NODETITLE_ENABLED', 1);
+define('AUTO_NODETITLE_OPTIONAL', 2);
+
+/**
+ * Implements hook_config_info().
+ */
+function auto_nodetitle_config_info() {
+  $prefixes['auto_nodetitle.settings'] = array(
+    'label' => t('Auto Nodetitle settings'),
+    'group' => t('Configuration'),
+  );
+
+  return $prefixes;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the node form.
+ */
+function auto_nodetitle_form_node_form_alter(&$form, &$form_state) {
+  if (config_get('auto_nodetitle.settings', 'ant_' . $form['#node']->type) == 1) {
+  // We will autogenerate the title later, just hide the title field in the meanwhile.
+    $form['title']['#value'] = 'ant';
+    $form['title']['#type'] = 'value';
+    $form['title']['#required'] = FALSE;
+  }
+  elseif (config_get('auto_nodetitle.settings', 'ant_' . $form['#node']->type) == 2) {
+    $form['title']['#required'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_node_submit().
+ *
+ * Generate the node title as soon as the form has been submitted. That way
+ * the node preview is shown right too.
+ */
+function auto_nodetitle_node_submit($node, $form, &$form_state) {
+  $setting = config_get('auto_nodetitle.settings', 'ant_' . $node->type);
+
+  if ($setting == 1 || ($setting == 2 && empty($form_state['values']['title']))) {
+    auto_nodetitle_set_title($node);
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function auto_nodetitle_node_presave($node) {
+  // If not yet done, generate the title now.
+  if (auto_nodetitle_is_needed($node)) {
+    auto_nodetitle_set_title($node);
+  }
+}
+
+/**
+ * Returns whether the auto nodetitle has to be set.
+ */
+function auto_nodetitle_is_needed($node) {
+  return empty($node->auto_nodetitle_applied) && ($setting = config_get('auto_nodetitle.settings', 'ant_' . $node->type)) && !($setting == 2 && !empty($node->title));
+}
+
+/**
+ * Helper function: sets the automatically generated nodetitle for the node.
+ *
+ * @param $node
+ *   A fully loaded node object.
+ */
+function auto_nodetitle_set_title(&$node) {
+  $types = node_type_get_types();
+  $pattern = config_get('auto_nodetitle.settings', 'ant_pattern_' . $node->type);
+  if (trim($pattern)) {
+    $node->changed = REQUEST_TIME;
+    $node->title = _auto_nodetitle_patternprocessor($pattern, $node);
+  }
+  elseif ($node->nid) {
+    $node->title = t('@type @node-id', array('@type' => $types[$node->type]->name, '@node-id' => $node->nid));
+  }
+  else {
+    $node->title = t('@type', array('@type' => $types[$node->type]->name));
+  }
+  // Ensure the generated title isn't too long.
+  $node->title = substr($node->title, 0, 255);
+  // With that flag we ensure we don't apply the title two times to the same
+  // node. See auto_nodetitle_is_needed().
+  $node->auto_nodetitle_applied = TRUE;
+}
+
+/**
+ * Implements hook_node_operations().
+ */
+function auto_nodetitle_node_operations() {
+  $operations = array(
+    'nodetitle_update' => array(
+      'label' => t('Update automatic nodetitles'),
+      'callback' => 'auto_nodetitle_operations_update',
+    ),
+  );
+  return $operations;
+}
+
+/**
+ * Callback function for updating node titles.
+ */
+function auto_nodetitle_operations_update($nodes) {
+  foreach ($nodes as $nid) {
+    $node = node_load($nid);
+    if ($node && auto_nodetitle_is_needed($node)) {
+      $previous_title = $node->title;
+      auto_nodetitle_set_title($node);
+      // Only save if the title has actually changed.
+      if ($node->title != $previous_title) {
+        node_save($node);
+      }
+    }
+  }
+}
+
+/**
+  * Helper function to generate the title according to the settings.
+  *
+  * @return a title string
+  */
+function _auto_nodetitle_patternprocessor($pattern, $node) {
+  // Replace tokens.
+  global $language;
+  $output = token_replace($pattern, array('node' => $node), array(
+    'sanitize' => FALSE,
+    'clear' => FALSE,
+    'langcode' => $language->langcode
+  ));
+
+  $output = preg_replace('/[\t\n\r\0\x0B]/', '', strip_tags($output));
+
+  return $output;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the node type form.
+ */
+function auto_nodetitle_form_node_type_form_alter(&$form, &$form_state) {
+  $default_value = auto_nodetitle_get_setting($form['#node_type']->type);
+  $form['auto_nodetitle'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Automatic title generation'),
+    '#weight' => 0,
+    '#collapsible' => TRUE,
+    '#collapsed' => !$default_value,
+    '#group' => 'additional_settings',
+    '#attached' => array(
+      'js' => array(
+        'auto-nodetitle' => backdrop_get_path('module', 'auto_nodetitle') . '/auto_nodetitle.js',
+      ),
+    ),
+  );
+  $form['auto_nodetitle']['ant'] = array(
+    '#type' => 'radios', 
+    '#default_value' => config_get('auto_nodetitle.settings', 'ant_' . $form['#node_type']->type),
+    '#options' => array(
+      t('Disabled'),
+      t('Automatically generate the title and hide the title field'),
+      t('Automatically generate the title if the title field is left empty'),
+    )
+  );
+  $form['auto_nodetitle']['ant_pattern'] = array(
+    '#type' => 'textfield',
+    '#size' => 80,
+    '#title' => t('Pattern for the title'),
+    '#description' => t('Use [token] syntax to insert a replacement pattern. Leave blank to use the default auto-generated title.'),
+    '#default_value' => config_get('auto_nodetitle.settings', 'ant_pattern_' . $form['#node_type']->type),
+  );
+
+  // Display the list of available placeholders if token module is installed.
+  $form['auto_nodetitle']['token_help'] = array(
+    '#theme' => 'token_tree',
+    '#token_types' => array('node'),
+  );
+
+  $form['#submit'][] = 'auto_nodetitle_node_type_form_submit';
+}
+
+/**
+ * Submit handler. Stores settings per mode type.
+ */
+function auto_nodetitle_node_type_form_submit(&$form, &$form_state) {
+  $config = config('auto_nodetitle.settings');
+  $config->set('ant_' . $form_state['values']['type'], $form_state['values']['ant']);
+  $config->set('ant_pattern_' . $form_state['values']['type'], $form_state['values']['ant_pattern']);
+  $config->save();
+}
+
+/**
+ * Gets the auto node title setting associated with the given content type.
+ */
+function auto_nodetitle_get_setting($type) {
+  return config_get('auto_nodetitle.settings', 'ant_' . $type);
+}
