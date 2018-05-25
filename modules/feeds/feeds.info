@@ -1,0 +1,11 @@
+name = Feeds
+description = Aggregates RSS/Atom/RDF feeds, imports CSV files and more.
+package = Feeds
+backdrop = 1.x
+type = module
+dependencies[] = job_scheduler
+
+; Added by Backdrop CMS packaging script on 2017-06-25
+project = feeds
+version = 1.x-1.0.0-beta
+timestamp = 1498399156
