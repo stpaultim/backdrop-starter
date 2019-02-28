@@ -12,6 +12,7 @@ require_once BACKDROP_ROOT . '/core/modules/simpletest/tests/bootstrap.test';
  */
 class ModuleTestCase extends WatchdogTestCase {
   protected $admin_user;
+  protected $profile = 'testing';
 
   function setUp() {
     parent::setUp('system_test');
@@ -398,6 +399,11 @@ class ModuleDependencyTestCase extends ModuleTestCase {
    * Tests enabling a module that depends on a module which fails hook_requirements().
    */
   function testEnableRequirementsFailureDependency() {
+    // Enable comment module before testing the dependencies.
+    $edit = array();
+    $edit['modules[Comments][comment][enable]'] = TRUE;
+    $this->backdropPost('admin/modules', $edit, t('Save configuration'));
+
     $this->assertModules(array('requirements1_test'), FALSE);
     $this->assertModules(array('requirements2_test'), FALSE);
 
@@ -525,42 +531,86 @@ class ModuleVersionTestCase extends ModuleTestCase {
    */
   function testModuleVersions() {
     $dependencies = array(
-      // Alternating between being compatible and incompatible with 1.x-2.4-beta3.
-      // The first is always a compatible.
-      'common_test',
+      // All comparisons are done against 1.x-2.4-beta3.
+      'common_test' => TRUE,
       // Branch incompatibility.
-      'common_test (1.x)',
+      'common_test (1.x)' => FALSE,
       // Branch compatibility.
-      'common_test (2.x)',
+      'common_test (2.x)' => TRUE,
       // Another branch incompatibility.
-      'common_test (>2.x)',
+      'common_test (>2.x)' => FALSE,
       // Another branch compatibility.
-      'common_test (<=2.x)',
+      'common_test (<=2.x)' => TRUE,
       // Another branch incompatibility.
-      'common_test (<2.x)',
+      'common_test (<2.x)' => FALSE,
       // Another branch compatibility.
-      'common_test (>=2.x)',
+      'common_test (>=2.x)' => TRUE,
+      // Higher rc version. Incompatible.
+      'common_test (>=1.x-2.4-rc1)' => FALSE,
+      // Higher beta version. Incompatible.
+      'common_test (>=1.x-2.4-beta4)' => FALSE,
+      // Lower beta version. Compatible.
+      'common_test (>=1.x-2.4-beta2)' => TRUE,
+      // Lower alpha version. Compatible.
+      'common_test (>=1.x-2.4-alpha8)' => TRUE,
       // Nonsense, misses a dash. Incompatible with everything.
-      'common_test (=1.x2.x, >=2.4)',
+      'common_test (=1.x2.x, >=2.4)' => FALSE,
       // Core version is optional. Compatible.
-      'common_test (=1.x-2.x, >=2.4-alpha2)',
+      'common_test (=1.x-2.x, >=2.4-alpha2)' => TRUE,
       // Test !=, explicitly incompatible.
-      'common_test (=2.x, !=2.4-beta3)',
+      'common_test (=2.x, !=2.4-beta3)' => FALSE,
       // Three operations. Compatible.
-      'common_test (=2.x, !=2.3, <2.5)',
+      'common_test (=2.x, !=2.3, <2.5)' => TRUE,
       // Testing extra version. Incompatible.
-      'common_test (<=2.4-beta2)',
+      'common_test (<=2.4-beta2)' => FALSE,
       // Testing extra version. Compatible.
-      'common_test (>2.4-beta2)',
+      'common_test (>2.4-beta2)' => TRUE,
       // Testing extra version. Incompatible.
-      'common_test (>2.4-rc0)',
+      'common_test (>2.4-rc0)' => FALSE,
     );
-    state_set('system_test_dependencies', $dependencies);
-    $n = count($dependencies);
-    for ($i = 0; $i < $n; $i++) {
+    foreach ($dependencies as $version_string => $compatible) {
+      // Each request, one dependency is shifted off the front and added to
+      // module_test's dependencies. See system_test_system_info_alter().
+      state_set('system_test_dependency', $version_string);
       $this->backdropGet('admin/modules');
       $checkbox = $this->xpath('//input[@id="edit-modules-testing-module-test-enable"]');
-      $this->assertEqual(!empty($checkbox[0]['disabled']), $i % 2, $dependencies[$i]);
+      $this->assertEqual(empty($checkbox[0]['disabled']), $compatible, $version_string);
+    }
+
+    $dev_dependencies = array(
+      // Compare again against a the dev version 1.x-2.x-dev.
+      'common_test' => TRUE,
+      // Branch incompatibility.
+      'common_test (1.x)' => FALSE,
+      // Branch compatibility.
+      'common_test (2.x)' => TRUE,
+      // Another branch incompatibility.
+      'common_test (>2.x)' => FALSE,
+      // Any alpha version
+      'common_test (>=1.x-2.x-alpha4)' => TRUE,
+      // Any beta version
+      'common_test (>=1.x-2.x-beta4)' => TRUE,
+      // Any rc version
+      'common_test (>=1.x-2.x-rc4)' => TRUE,
+      // Any preview version
+      'common_test (>=1.x-2.x-preview)' => TRUE,
+      // Complex version string.
+      'common_test (>=1.x-2.4-beta2)' => TRUE,
+      // Dev versions are later than any minor number.
+      'common_test (>=2.4.0)' => TRUE,
+      // Next version is not compatible.
+      'common_test (>=3.0.0)' => FALSE,
+    );
+
+    // Same testing approach as above, only against a different version number.
+    foreach ($dev_dependencies as $version_string => $compatible) {
+      // Each request, one dependency is shifted off the front and added to
+      // module_test's dependencies. See system_test_system_info_alter().
+      state_set('system_test_dev_dependency', $version_string);
+      $this->backdropGet('admin/modules');
+
+      $checkbox = $this->xpath('//input[@id="edit-modules-testing-module-test-enable"]');
+      $this->assertEqual(empty($checkbox[0]['disabled']), $compatible, 'Dev dependency: ' . $version_string);
     }
   }
 }
@@ -1280,7 +1330,7 @@ class DateTimeFunctionalTest extends BackdropWebTestCase {
 
     // Edit custom date format.
     $this->backdropGet('admin/config/regional/date-time/formats');
-    $this->clickLink(t('Edit'));
+    $this->clickLink(t('Configure'));
     $edit = array(
       'pattern' => 'Y m',
     );
@@ -1600,6 +1650,29 @@ class SystemThemeFunctionalTest extends BackdropWebTestCase {
   }
 
   /**
+   * Test the individual per-theme settings form.
+   */
+  function testPerThemeSettings() {
+    // Enable the test theme and the module that controls it. Clear caches in
+    // between so that the module's hook_system_theme_info() implementation is
+    // correctly registered.
+    module_enable(array('theme_test'));
+    backdrop_flush_all_caches();
+    theme_enable(array('test_theme'));
+
+    // Test that the theme-specific settings form can be saved and that the
+    // theme-specific checkbox is checked and unchecked as appropriate.
+    $this->backdropGet('admin/appearance/settings/test_theme');
+    $this->assertNoFieldChecked('edit-test-theme-checkbox', 'The test_theme_checkbox setting is unchecked.');
+    $this->backdropPost(NULL, array('test_theme_checkbox' => TRUE), t('Save theme settings'));
+    $this->assertText('The configuration options have been saved.');
+    $this->assertFieldChecked('edit-test-theme-checkbox', 'The test_theme_checkbox setting is checked.');
+    $this->backdropPost(NULL, array('test_theme_checkbox' => FALSE), t('Save theme settings'));
+    $this->assertText('The configuration options have been saved.');
+    $this->assertNoFieldChecked('edit-test-theme-checkbox', 'The test_theme_checkbox setting is unchecked.');
+  }
+
+  /**
    * Test the administration theme functionality.
    */
   function testAdministrationTheme() {
@@ -1675,8 +1748,28 @@ class SystemThemeFunctionalTest extends BackdropWebTestCase {
     $this->clickLink(t('Enable and set default'), 0);
     $this->assertEqual(config_get('system.core', 'theme_default'), 'bartik');
   }
-}
 
+  /**
+   * Test theme settings.
+   */
+  function testThemeSettings() {
+    theme_enable(array('basis'));
+    // Change Basis settings so config file is created.
+    $edit = array();
+    $this->backdropPost('admin/appearance/settings/basis', $edit, t('Save theme settings'));
+
+    // Ensure config file exists.
+    $config_before = config('basis.settings');
+
+    $this->assertFalse($config_before->isNew(), 'Basis config file exists.');
+
+    theme_disable(array('basis'));
+
+    // Check that config file no longer exists.
+    $config_after = config('basis.settings');
+    $this->assertTrue($config_after->isNew(), 'Basis config file does not exist.');
+  }
+}
 
 /**
  * Test the basic queue functionality.

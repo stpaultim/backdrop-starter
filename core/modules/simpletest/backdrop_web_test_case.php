@@ -2096,14 +2096,12 @@ class BackdropWebTestCase extends BackdropTestCase {
    */
   protected function parse() {
     if (!$this->elements) {
-      // DOM can load HTML soup. But, HTML soup can throw warnings, suppress
-      // them.
       $htmlDom = new DOMDocument();
+      // DOM can load HTML soup, which can throw warnings. Suppress them here.
       @$htmlDom->loadHTML('<?xml encoding="UTF-8">' . $this->backdropGetContent());
       if ($htmlDom) {
         $this->pass(t('Valid HTML found on "@path"', array('@path' => $this->getUrl())), t('Browser'));
-        // It's much easier to work with simplexml than DOM, luckily enough
-        // we can just simply import our DOM tree.
+        // Import our DOM tree.
         $this->elements = simplexml_import_dom($htmlDom);
       }
     }
@@ -3687,7 +3685,7 @@ class BackdropWebTestCase extends BackdropTestCase {
    *   TRUE on pass, FALSE on fail.
    */
   protected function assertOption($id, $option, $message = '') {
-    $options = $this->xpath('//select[@id=:id]/option[@value=:option]', array(':id' => $id, ':option' => $option));
+    $options = $this->xpath('//select[@id=:id]//option[@value=:option]', array(':id' => $id, ':option' => $option));
     return $this->assertTrue(isset($options[0]), $message ? $message : t('Option @option for field @id exists.', array('@option' => $option, '@id' => $id)), t('Browser'));
   }
 
