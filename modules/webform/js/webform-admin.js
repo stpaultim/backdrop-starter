@@ -1,7 +1,7 @@
 
 /**
  * @file
- * Webform node form interface enhancments.
+ * Webform node form interface enhancements.
  */
 
 (function ($) {
@@ -304,6 +304,7 @@
           $argument.hide();
         }
         break;
+
       case 'set':
         if (!isShown) {
           $argument.show();

@@ -1,12 +1,16 @@
 <?php
 
 /**
- * @file
  * Webform module permission tests.
  */
+
 require_once backdrop_get_path('module', 'webform') . '/tests/WebformTestCase.test';
 
+/**
+ *
+ */
 class WebformPermissionsTestCase extends WebformTestCase {
+
   /**
    * {@inheritdoc}
    */
@@ -21,7 +25,7 @@ class WebformPermissionsTestCase extends WebformTestCase {
   /**
    * Create a webform node in which authenticated users have access to submit.
    */
-  function testWebformSubmitAccess() {
+  public function testWebformSubmitAccess() {
     $this->webformReset();
     $node = $this->webformForm();
     $node->webform['roles'] = array('authenticated');
@@ -40,8 +44,10 @@ class WebformPermissionsTestCase extends WebformTestCase {
     // The anonymous user should not be able to submit.
     $this->backdropGet('node/' . $node->nid);
 
-    // Note: Should be: You must <a href="!login">login</a> or <a href="!register">register</a> to view this form.
-    // Something in SimpleTest isn't handling the string correctly.
+    // Note: Should be: You must <a href="!login">login</a> or
+    // <a href="!register">register</a> to view this form. Something in
+    // SimpleTest isn't handling the string correctly.
     $this->assertText('to view this form.', t('Anonymous user is not allowed to submit form.'), t('Webform'));
   }
+
 }
