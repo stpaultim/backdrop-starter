@@ -10,7 +10,7 @@ dependencies[] = views
 files[] = feeds_news.module
 files[] = feeds_news.test
 
-; Added by Backdrop CMS packaging script on 2017-06-25
+; Added by Backdrop CMS packaging script on 2018-08-03
 project = feeds
-version = 1.x-1.0.0-beta
-timestamp = 1498399156
+version = 1.x-1.0.1-beta
+timestamp = 1533333639
