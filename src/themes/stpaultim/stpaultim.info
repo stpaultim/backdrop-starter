@@ -1,6 +1,0 @@
-name = St Paul Tim
-description = A subtheme by Tim
-backdrop = 1.x
-base theme = minicss
-
-stylesheets[all][] = css/stpaul.css

@@ -1,9 +1,0 @@
-name = Shane's Subtheme
-description = This is a sub-theme of theme Bartik, made by John for the web site example.com (red, responsive).
-backdrop = 1.x
-base theme = basis
-version = BACKDROP_VERSION
-
-stylesheets[all][] = styles.css
-
-
