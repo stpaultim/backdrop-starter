@@ -355,7 +355,7 @@ function triplo_install() {
   $admin_role = new stdClass();
   $admin_role->name = 'administrator';
   $admin_role->label = st('Administrator');
-  $admin_role->weight = 2;
+  $admin_role->weight = 10;
   $admin_role->permissions = array_keys(module_invoke_all('permission'));
   user_role_save($admin_role);
   // Set this as the administrator role.
@@ -365,6 +365,13 @@ function triplo_install() {
   db_insert('users_roles')
     ->fields(array('uid' => 1, 'role' => $admin_role->name))
     ->execute();
+
+  // Create an Editor role for site editors, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'editor';
+  $admin_role->label = st('Editor');
+  $admin_role->weight = 5;
+  user_role_save($admin_role);
 
   // Create a Home link in the main menu.
   $item = array(

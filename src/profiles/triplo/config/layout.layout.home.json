@@ -4,7 +4,7 @@
     "name": "home",
     "title": "Home page",
     "description": null,
-    "module": "standard",
+    "module": "triplo",
     "weight": 0,
     "storage": 4,
     "layout_template": "boxton",
