@@ -1,0 +1,4 @@
+# Telling git to include this directory in repo but ignore it's contents
+
+*
+!.gitignore
