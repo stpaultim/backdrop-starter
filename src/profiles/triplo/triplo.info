@@ -31,4 +31,10 @@ dependencies[] = update
 dependencies[] = views
 dependencies[] = views_ui
 
+// Triplo specific modules
+
+dependencies[] = honeypot
+dependencies[] = masquerade
+dependencies[] = webform
+dependencies[] = masquerade
 
