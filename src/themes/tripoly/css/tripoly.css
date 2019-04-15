@@ -12,6 +12,16 @@
 	/*background: #343a40;*/
 }
 
+.layout {
+    box-sizing: border-box;
+    height: 100vh;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
 .l-wrapper {
     -webkit-flex: 1 0 auto;
     -ms-flex: 1 0 auto;
