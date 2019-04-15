@@ -11,6 +11,13 @@
 .l-header {
 	/*background: #343a40;*/
 }
+
+.l-wrapper {
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
 .block-content:after {
 	content: "";
 	display: table;
