@@ -6,7 +6,7 @@ configure = admin/config/content/webform
 type = module
 php = 5.3
 
-; Added by Backdrop CMS packaging script on 2019-03-09
+; Added by Backdrop CMS packaging script on 2019-06-17
 project = webform
-version = 1.x-4.19.2
-timestamp = 1552193148
+version = 1.x-4.19.3
+timestamp = 1560792644
