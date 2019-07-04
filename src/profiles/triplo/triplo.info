@@ -10,6 +10,7 @@ dependencies[] = color
 dependencies[] = comment
 dependencies[] = config
 dependencies[] = contextual
+dependencies[] = dashboard
 dependencies[] = date
 dependencies[] = email
 dependencies[] = image
@@ -31,10 +32,11 @@ dependencies[] = update
 dependencies[] = views
 dependencies[] = views_ui
 
-// Triplo specific modules
+; Triplo specific modules
 
-dependencies[] = honeypot
-dependencies[] = masquerade
 dependencies[] = webform
 dependencies[] = masquerade
+dependencies[] = honeypot
+dependencies[] = backup_migrate
+dependencies[] = devel
 
