@@ -21,7 +21,7 @@ if (module_exists('color')) {
     'menutoggle',
   );
   foreach ($fields as $field) {
-    $form['header'][$field] = color_get_color_element('basis', $field, $form);
+    $form['header'][$field] = color_get_color_element('tri_basis', $field, $form);
   }
 
   $form['general'] = array(
@@ -37,7 +37,7 @@ if (module_exists('color')) {
     'formfocusborder',
   );
   foreach ($fields as $field) {
-    $form['general'][$field] = color_get_color_element('basis', $field, $form);
+    $form['general'][$field] = color_get_color_element('tri_basis', $field, $form);
   }
 
   $form['primary_tabs'] = array(
@@ -51,7 +51,7 @@ if (module_exists('color')) {
     'buttons',
   );
   foreach ($fields as $field) {
-    $form['primary_tabs'][$field] = color_get_color_element('basis', $field, $form);
+    $form['primary_tabs'][$field] = color_get_color_element('tri_basis', $field, $form);
   }
 
   $form['footer'] = array(
@@ -65,7 +65,7 @@ if (module_exists('color')) {
     'footertext',
   );
   foreach ($fields as $field) {
-    $form['footer'][$field] = color_get_color_element('basis', $field, $form);
+    $form['footer'][$field] = color_get_color_element('tri_basis', $field, $form);
   }
 }
 else {

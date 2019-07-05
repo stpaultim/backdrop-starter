@@ -179,7 +179,6 @@ fieldset .fieldset-legend {
 
 .header-identity-wrapper {
   /* BG color for slogan, and logo/site name if they don't have a bg */
-  background: #000000;
 }
 
 @media (min-width: 34em) {
@@ -232,7 +231,6 @@ fieldset .fieldset-legend {
 }
 
 .header-site-name-link {
-  background: #0074bd;
   padding: 1.25rem 1.25rem 1rem;
   line-height: 1.25rem;
   text-align: center;

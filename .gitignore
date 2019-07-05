@@ -16,3 +16,20 @@
 */.lando.yml
 .idea
 */.idea
+
+# Config
+config/active
+config/staging
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases #
+*.log
+*.sql

@@ -26,6 +26,8 @@ stylesheets[all][] = css/component/comment.css
 stylesheets[all][] = css/component/caption.css
 stylesheets[all][] = css/skin.css
 
+stylesheets[all][] = css/custom/overrides.css
+
 stylesheets[print][] = css/print.css
 
 ; Include a style sheet in the rich-text editor.
