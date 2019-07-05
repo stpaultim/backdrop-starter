@@ -15,7 +15,6 @@ if (module_exists('color')) {
   );
   $fields = array(
     'header',
-    'base',
     'slogan',
     'titleslogan',
     'hovermenu',
