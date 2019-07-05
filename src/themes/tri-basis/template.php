@@ -9,7 +9,7 @@
  *
  * @see page.tpl.php
  */
-function basis_preprocess_page(&$variables) {
+function tri_basis_preprocess_page(&$variables) {
   $node = menu_get_object();
 
   // Add the OpenSans font from core on every page of the site.
@@ -32,7 +32,7 @@ function basis_preprocess_page(&$variables) {
  *
  * @see maintenance-page.tpl.php
  */
-function basis_preprocess_maintenance_page(&$variables) {
+function tri_basis_preprocess_maintenance_page(&$variables) {
   $css_path = backdrop_get_path('theme', 'basis') . '/css/component/maintenance.css';
   backdrop_add_css($css_path);
 }
@@ -42,7 +42,7 @@ function basis_preprocess_maintenance_page(&$variables) {
  *
  * @see layout.tpl.php
  */
-function basis_preprocess_layout(&$variables) {
+function tri_basis_preprocess_layout(&$variables) {
   if ($variables['is_front']) {
     // Add a special front-page class.
     $variables['classes'][] = 'layout-front';
@@ -58,7 +58,7 @@ function basis_preprocess_layout(&$variables) {
  *
  * @see node.tpl.php
  */
-function basis_preprocess_node(&$variables) {
+function tri_basis_preprocess_node(&$variables) {
   if ($variables['status'] == NODE_NOT_PUBLISHED) {
     $name = node_type_get_name($variables['type']);
     $variables['title_suffix']['unpublished_indicator'] = array(
@@ -73,7 +73,7 @@ function basis_preprocess_node(&$variables) {
  *
  * @see header.tpl.php
  */
-function basis_preprocess_header(&$variables) {
+function tri_basis_preprocess_header(&$variables) {
   $logo = $variables['logo'];
   $logo_attributes = $variables['logo_attributes'];
 
@@ -94,7 +94,7 @@ function basis_preprocess_header(&$variables) {
  *
  * @see theme_breadcrumb().
  */
-function basis_breadcrumb($variables) {
+function tri_basis_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   $output = '';
   if (!empty($breadcrumb)) {
