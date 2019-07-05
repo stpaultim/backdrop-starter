@@ -3,7 +3,6 @@ $info = array(
   // Available colors and color labels used in theme.
   'fields' => array(
     'header' => t('Header background'),
-    'base' => t('Site name background'),
     'slogan' => t('Slogan background'),
     'titleslogan' => t('Site name and slogan'),
     'hovermenu' => t('Main menu hover background'),
