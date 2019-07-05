@@ -1,5 +1,7 @@
-# Basis Theme
-Default theme in Backdrop.
+# Tribasis Theme
+This theme is fork of the Basis theme from Backdrop Core as of July 1, 2019. 
+The goal for this theme is simply to make improvements that make Basis more
+flexible and easy to use out of the box.
 
 ## Responsive Strategy
 Media queries and other responsive code should be mobile first. This means all
@@ -12,6 +14,13 @@ The breakpoints are:
 * `(min-width: 48em)` - About `768px`
 * `(min-width: 62em)` - About `992px`
 * `(min-width: 75em)` - About `1200px`
+
+## Classes that can be added to blocks in UI 
+
+* hero-large           (default - height: 600px)
+* hero-medium          (default - height: 400px)
+* hero-small           (default - height: 200px)
+* hero-extra-small     (default - height: 100px)
 
 ## CSS documentation
 See [README.md in css directory](css/README.md).

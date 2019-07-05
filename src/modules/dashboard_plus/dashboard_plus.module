@@ -1,0 +1,21 @@
+<?php
+
+
+/**
+ * Implements hook_block_info().
+ */
+function dashboard_plus_block_info() {
+  $blocks = array();
+
+  // Dashboard blocks.
+  $blocks['manage_node_types'] = array(
+    'info' => t('Dashboard - Manage content types'),
+    'description' => t('Provides links to manage content types'),
+    'class' => 'DashboardPlusContentTypesBlock',
+  );
+
+  return $blocks;
+}
+
+
+

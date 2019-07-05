@@ -6,6 +6,12 @@
     margin-bottom: 0;
 }
 
+.row .l-content,
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
 .hero-large {
     height: 600px;
 }
