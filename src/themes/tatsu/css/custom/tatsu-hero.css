@@ -15,3 +15,9 @@
     padding-right: 0;
     padding-left: 0;
 }
+
+/* Overiding css from boxton hero */
+
+.hero-layouts .container {
+    display: block;
+}
