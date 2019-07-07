@@ -1,0 +1,6 @@
+{
+    "_config_name": "user.role.editor",
+    "name": "editor",
+    "label": "Editor",
+    "weight": 5
+}
