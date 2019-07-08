@@ -1,5 +1,6 @@
-.l-top .block-hero {
+.l-wrapper .block.block-hero {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .l-header {
@@ -20,4 +21,19 @@
 
 .hero-layouts .container {
     display: block;
+}
+
+.l-wrapper .block {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+
+.block-hero-image {
+    background-position: center center;
+}
+
+.views-row {
+    margin-bottom: 3rem;
 }
