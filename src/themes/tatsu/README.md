@@ -1,26 +1,45 @@
 # Tatsu
-A flexible theme built on top of basis
-
-The purpose of this theme is to create a simple and flexible 
-theme in the contrib space (based on Basis) in ways that make it easier for 
-users to modify an out of the box theme through the UI. 
+A flexible sub theme of BASIS that allows a site editor or manager to make
+maximum color/visual customizations through the user interface. 
 
 We think that there is demand for this kind of theme in the contrib space 
-and welcome both feature and design suggestions.
+and welcome both feature and design suggestions. Let's make this a community
+project. 
 
-We found the name Tatsu on a list of good names for Dragons and later learned that it is also the name of a roller coaster in California, USA.  
+NOTE: We are still early in development and will try to keep things as stabile
+as possible, however be prepared for significant changes. 
 
-## Installation
+We found the name Tatsu on a list of good names for Dragons and later 
+learned that it is also the name of a roller coaster in California, USA.  
+
+## INSTALLATION
 
 - Install this theme using the official Backdrop CMS instructions at
   https://backdropcms.org/guide/themes
+  
+### Recommended (to acheive results in screen shot)
 
-## Issues
+- Go to /admin/appearance/list and set Tatsu to default theme
+
+To get benefits of color module support for multiple hero regions
+enable tatsu_hero layout
+- Move from: /themes/tatsu/tatsu_hero 
+- Move to:   /layouts/tatsu_hero
+  
+Go to /admin/structure/layouts/manage/home  
+- Remove "Primary Navigation" block from Header region
+- Set "Header" block to use "Primary navigation" menu
+- Move "Welcome" block to first Hero region
+
+Other tips
+- To center content in hero regions add "container" class to region
+  
+## ISSUES
 
 Bugs and Feature requests should be reported in the Issue Queue:
 https://github.com/backdrop-contrib/tatsu/issues
 
-## Changes / Features
+## CHANGES (from Basis)
 
 * Small changes to hero blocks to make them fit gether nicely.
 * Removed the background color from behind the site name.
@@ -28,21 +47,28 @@ https://github.com/backdrop-contrib/tatsu/issues
 
 ### Special CSS Classes
 
-* hero-large           (default - height: 600px)
-* hero-medium          (default - height: 400px)
-* hero-small           (default - height: 200px)
-* hero-extra-small     (default - height: 100px)
+- hero-large         {height: 600px;}
+- hero-medium        {height: 400px;}
+- hero-small         {height: 200px;}
+- hero-extra-small   {height: 100px;}
+- content-narrow     {padding-left: 30%; padding-right: 30%;}
+- content-medium     {padding-left: 20%; padding-right: 20%;}
+- content-wide       {padding-left: 10%;padding-right: 10%;}
+- content-center     {text-align: center;}
 
-### Recommended Layouts
+(We are open to better naming conventions or recommendations for libraries to use.)
 
-* Boxton Hero (front page)
+### Recommended Layouts (included in theme)
 
-## Maintainers
+- Tatsu Hero (front page)
+  Provided as part of theme, but must be moved to layouts directory
+
+## MAINTAINERS
 
 - Tim Erickson (https://github.com/stpaultim).
 - Seeking co-maintainers
 
-## Credits
+## CREDITS
 
 - Thanks to Wes Ruvalcaba (https://github.com/wesruv) for 
   all the work he did on Basis along with anyone else who 
@@ -50,7 +76,7 @@ https://github.com/backdrop-contrib/tatsu/issues
   
 - Work on Tatsu is support by Triplo LLC (https://www.triplo.co)
 
-## License
+## LICENSE
 
 This project is GPL v2 software. See the LICENSE.txt file in this directory for
 complete text.
