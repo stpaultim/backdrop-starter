@@ -141,4 +141,24 @@
       </div><!-- /.container -->
     </footer>
   <?php endif; ?>
+  <?php if ($content['footer']): ?>
+    <div class="l-footer">
+        <div class="container container-fluid row">
+            <main class="l-footer col-md-6 col-md-push-3" role="main" aria-label="<?php print t('Main content'); ?>">
+              <?php print $content['footer-left']; ?>
+            </main>
+            <div class="l-sidebar l-sidebar-first col-md-3 col-md-pull-6">
+              <?php print $content['footer-center']; ?>
+            </div>
+            <div class="l-sidebar l-sidebar-second col-md-3">
+              <?php print $content['footer-right']; ?>
+            </div>
+        </div>
+        <div class="l-footer-bottom container container-fluid row">
+          <?php print $content['footer-bottom']; ?>
+        </div><!-- /.container -->
+    </div>
+  <?php endif; ?>
+
 </div><!-- /.layout--tatsu-hero -->
+
