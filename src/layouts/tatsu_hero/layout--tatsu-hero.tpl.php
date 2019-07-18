@@ -134,16 +134,16 @@
 
   </div><!-- /.l-wrapper -->
 
- 
+
     <div class="l-footer">
         <div class="container container-fluid row">
-            <main class="l-footer col-md-6 col-md-push-3" role="main" aria-label="<?php print t('Main content'); ?>">
+            <main class="l-footer col-md-6 col-md-4" role="main" aria-label="<?php print t('Main content'); ?>">
               <?php print $content['footer-left']; ?>
             </main>
-            <div class="l-sidebar l-sidebar-first col-md-3 col-md-pull-6">
+            <div class="l-sidebar l-sidebar-first col-md-4 col-md-pull-6">
               <?php print $content['footer-center']; ?>
             </div>
-            <div class="l-sidebar l-sidebar-second col-md-3">
+            <div class="l-sidebar l-sidebar-second col-md-4">
               <?php print $content['footer-right']; ?>
             </div>
         </div>
