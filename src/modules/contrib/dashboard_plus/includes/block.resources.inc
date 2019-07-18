@@ -3,7 +3,7 @@
  * @file
  * Dashboard block providing links to create new content.
  */
-class DashboardPlusContentTypesBlock extends Block {
+class DashboardCreateBlock extends Block {
   /**
    * {@inheritdoc}
    */
@@ -52,6 +52,9 @@ class DashboardPlusContentTypesBlock extends Block {
         if (node_access('create', $machine)) {
           $type_url_str = str_replace('_', '-', $node_type->type);
           $create[] = l(t('Add new @type', array('@type' => t($node_type->name))), 'node/add/' . $type_url_str, array('html' => TRUE));
+//          $create[] = l(t('Manage @type', array('@type' => t($node_type->name))), 'admin/content/node?status=All&type=' . $type_url_str, array('html' => TRUE));
+          $create[] = l(t('Manage @type', array('@type' => t($node_type->name))), 'admin/content/node', array('html' => TRUE, 'query' => array('status' => 'All', 'type' => $type_url_str)));
+
           $no_access = FALSE;
         }
       }
