@@ -78,36 +78,11 @@
       </div>
 
     <?php if (!empty($content['hero'])): ?>
-      <div class="l-hero-1">
+      <div class="l-hero">
         <div class="no-container">
           <?php print $content['hero']; ?>
         </div>
       </div>
-    <?php endif; ?>
-
-    <?php if (!empty($content['hero_two'])): ?>
-        <div class="l-hero-2">
-            <div class="no-container">
-              <?php print $content['hero_two']; ?>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <?php if (!empty($content['hero_three'])): ?>
-        <div class="l-hero-3">
-            <div class="no-container">
-              <?php print $content['hero_three']; ?>
-            </div>
-        </div>
-    <?php endif; ?>
-
-
-    <?php if (!empty($content['hero_four'])): ?>
-        <div class="l-hero-4">
-            <div class="no-container">
-              <?php print $content['hero_four']; ?>
-            </div>
-        </div>
     <?php endif; ?>
 
     <?php if (!empty($content['top'])): ?>
