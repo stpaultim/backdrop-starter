@@ -157,9 +157,6 @@
 
       </footer>
 
-
-
-
 </div><!-- /.layout--tatsu-hero -->
 
 
