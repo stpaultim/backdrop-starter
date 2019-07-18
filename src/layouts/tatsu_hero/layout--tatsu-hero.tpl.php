@@ -134,14 +134,7 @@
 
   </div><!-- /.l-wrapper -->
 
-  <?php if ($content['footer']): ?>
-    <footer class="l-footer"  role="footer">
-      <div class="l-footer-inner container container-fluid row">
-        <?php print $content['footer']; ?>
-      </div><!-- /.container -->
-    </footer>
-  <?php endif; ?>
-  <?php if ($content['footer']): ?>
+ 
     <div class="l-footer">
         <div class="container container-fluid row">
             <main class="l-footer col-md-6 col-md-push-3" role="main" aria-label="<?php print t('Main content'); ?>">
@@ -158,7 +151,7 @@
           <?php print $content['footer-bottom']; ?>
         </div><!-- /.container -->
     </div>
-  <?php endif; ?>
+
 
 </div><!-- /.layout--tatsu-hero -->
 
