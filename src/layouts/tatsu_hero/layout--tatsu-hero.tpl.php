@@ -135,23 +135,32 @@
   </div><!-- /.l-wrapper -->
 
 
-    <div class="l-footer">
-        <div class="container container-fluid row">
-            <main class="l-footer col-md-6 col-md-4" role="main" aria-label="<?php print t('Main content'); ?>">
-              <?php print $content['footer-left']; ?>
-            </main>
-            <div class="l-sidebar l-sidebar-first col-md-4 col-md-pull-6">
-              <?php print $content['footer-center']; ?>
-            </div>
-            <div class="l-sidebar l-sidebar-second col-md-4">
-              <?php print $content['footer-right']; ?>
-            </div>
-        </div>
-        <div class="l-footer-bottom container container-fluid row">
-          <?php print $content['footer-bottom']; ?>
-        </div><!-- /.container -->
-    </div>
+      <footer class="l-footer"  role="footer">
+          <div class="l-footer-inner container container-fluid row">
+            <?php print $content['footer']; ?>
+          </div><!-- /.container -->
+          <div class="container container-fluid row">
+              <main class="col-md-4" role="main" aria-label="<?php print t('Main content'); ?>">
+                <?php print $content['footer-left']; ?>
+              </main>
+              <div class="col-md-4">
+                <?php print $content['footer-center']; ?>
+              </div>
+              <div class="col-md-4">
+                <?php print $content['footer-right']; ?>
+              </div>
+          </div>
+          <div class="l-footer-bottom container container-fluid row">
+            <?php print $content['footer-bottom']; ?>
+          </div>
+
+
+      </footer>
+
+
 
 
 </div><!-- /.layout--tatsu-hero -->
+
+
 

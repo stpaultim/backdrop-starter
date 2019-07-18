@@ -13,6 +13,7 @@ regions[hero_four]     = Hero 4
 regions[top]           = Top
 regions[content]       = Content
 regions[bottom]        = Bottom
+regions[footer]        = Footer Top
 regions[footer-left]   = Footer Left
 regions[footer-center] = Footer Center
 regions[footer-right]  = Footer Right
