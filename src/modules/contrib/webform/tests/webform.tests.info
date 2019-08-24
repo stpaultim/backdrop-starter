@@ -28,7 +28,12 @@ description = Submits a sample webform and checks the database integrity.
 group = Webform
 file = WebformSubmissionTestCase.test
 
-; Added by Backdrop CMS packaging script on 2019-06-17
+[WebformUnitTestCase]
+name =  Webform unit tests
+description = Unit tests for Webform functions.
+group = Webform
+file = WebformUnitTestCase.test
+; Added by Backdrop CMS packaging script on 2019-08-13
 project = webform
-version = 1.x-4.19.3
-timestamp = 1560792644
+version = 1.x-4.20.0
+timestamp = 1565727787
