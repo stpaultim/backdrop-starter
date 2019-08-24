@@ -1,0 +1,89 @@
+<?php
+
+  function zoo_animals_install() {
+
+
+    $types = array(
+      array(
+        'type' => 'animals',
+        'name' => st('Animals'),
+        'description' => st("My favorite animals."),
+        'settings' => array(
+          'status_default' => NODE_PUBLISHED,
+          'promote_enabled' => FALSE,
+          'node_preview' => TRUE,
+          'promote_default' => FALSE,
+          'sticky_enabled' => FALSE,
+          'sticky_default' => FALSE,
+          'revision_enabled' => TRUE,
+          'revision_default' => FALSE,
+          'node_submitted' => FALSE,
+          'node_user_picture' => FALSE,
+          'comment_default' => COMMENT_NODE_CLOSED,
+          'menu_options' => array('main-menu'),
+        ),
+        'is_new' => TRUE,
+      ),
+    );
+
+    foreach ($types as $type) {
+      $type = node_type_set_defaults($type);
+      node_type_save($type);
+      node_add_body_field($type);
+    }
+
+        // Add default alias for page content types.
+    config('path.settings')
+      ->set('node_page_pattern', '[node:title]')
+      ->set('node_post_pattern', 'animals/[node:title]')
+      ->save();
+
+    $instance = array(
+      'field_name' => 'field_tags',
+      'entity_type' => 'node',
+      'label' => 'Tags',
+      'bundle' => 'animals',
+      'description' => $help,
+      'widget' => array(
+        'type' => 'taxonomy_autocomplete',
+        'weight' => -4,
+      ),
+      'display' => array(
+        'default' => array(
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 10,
+        ),
+        'teaser' => array(
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 10,
+        ),
+      ),
+    );
+    field_create_instance($instance);
+
+    $post = new Node(
+      array(
+        'title' => st('Elephants'),
+        'body' => array(
+          LANGUAGE_NONE => array(
+            array(
+              'value' => st('This is my test post. By Tim Erickson.
+                This is line
+                This is line 3
+                THis is line 4'),
+            ),
+          ),
+        ),
+        'tags' => 'Mammals',
+        'uid' => 1,
+        'status' => 1,
+        'promote' => 1,
+        'type' => 'post',
+      )
+    );
+    $post->save();
+
+  }
+
+
+  
