@@ -49,6 +49,14 @@ class ConfigurableBlockStyle extends LayoutHandler {
         '#description' => t('Add div with container class to align text with other regions.'),
       );
 
+      // Content Container settings.
+      $form['content_padding'] = array(
+        '#title' => t('Content padding'),
+        '#type' => 'checkbox',
+        '#default_value' => $this->settings['content_padding'],
+        '#description' => t('Add 30px 20px 20px 20px padding to this block.'),
+      );
+
       $form['classes'] = array(
         '#title' => t('Block classes'),
         '#type' => 'textfield',
@@ -89,7 +97,6 @@ class ConfigurableBlockStyle extends LayoutHandler {
           ),
         ),
       );
-  
 
       // Height settings.
       $form['height'] = array(
@@ -150,6 +157,7 @@ class ConfigurableBlockStyle extends LayoutHandler {
     $this->settings['classes'] = $form_state['values']['style_settings']['classes'];
 
     $this->settings['content_container'] = $form_state['values']['style_settings']['content_container'];
+    $this->settings['content_padding'] = $form_state['values']['style_settings']['content_padding'];
 
     $this->settings['color_type'] = $form_state['values']['style_settings']['colors']['color_type'];
     $this->settings['text_color'] = $form_state['values']['style_settings']['colors']['text_color'];

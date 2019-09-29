@@ -25,4 +25,7 @@ function template_preprocess_block_configurable(&$variables) {
   if ($style->settings['content_container']) {
     $variables['content_container'] = TRUE;
   }
+  if ($style->settings['content_padding']) {
+    $variables['attributes']['style'] .= 'padding: 30px 20px';
+  }
 }

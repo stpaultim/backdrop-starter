@@ -12,7 +12,8 @@
  * - $content: The actual content of the block.
  */
 ?>
-<div class="<?php print implode(' ', $classes);?>" <?php print backdrop_attributes($attributes);
+<div class="<?php print implode(' ', $classes);?><?php if ($content_padding):?> padded-block <?php endif;?>"
+  <?php print backdrop_attributes($attributes);
 ?>>
   <?php if ($content_container):?>
   <div class="container">
