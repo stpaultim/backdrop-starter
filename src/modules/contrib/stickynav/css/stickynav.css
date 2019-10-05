@@ -1,5 +1,5 @@
-.stickynav-active {
-  position: fixed !important;
+html .stickynav-active {
+  position: fixed;
   top: 0px;
   z-index: 1000;
   width: 100%;
