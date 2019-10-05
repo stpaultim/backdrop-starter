@@ -6,6 +6,7 @@ function template_preprocess_block_configurable(&$variables) {
 
   $block = $variables['block'];
   $style = $block->style;
+  $variables['attributes']['style'] = '';
 
   if ($style->settings['color_type'] === 'custom') {
     $variables['attributes']['style'] .= 'background-color:' . $style->settings['background_color'] . ';';
@@ -25,7 +26,11 @@ function template_preprocess_block_configurable(&$variables) {
   if ($style->settings['content_container']) {
     $variables['content_container'] = TRUE;
   }
-  if ($style->settings['content_padding']) {
-    $variables['attributes']['style'] .= 'padding: 30px 20px';
+  if ($style->settings['content_padding'] == TRUE) {
+    $variables['attributes']['style'] .= 'padding:' .
+      $style->settings['padding_top'] . 'px ' .
+      $style->settings['padding_right'] . 'px ' .
+      $style->settings['padding_bottom'] . 'px ' .
+      $style->settings['padding_left'] . 'px;';
   }
 }
