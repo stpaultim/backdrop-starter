@@ -99,6 +99,10 @@ function triplo_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
+
+  $default_layout = 'triplo_flipped';
+  config_set('layout.layout.default', 'layout_template', $default_layout);
+
   // Enable Basis theme and set it as default theme instead of Stark.
   // @see system_install()
   $default_theme = 'basis';
