@@ -1,5 +1,6 @@
 .block-system-header {
     padding-top: 15px;
+    min-height: 75px;
 }
 
 .block-system-header .block-content {
