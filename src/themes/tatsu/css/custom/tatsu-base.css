@@ -4,6 +4,10 @@
 	margin-left: 0;
 }
 
+.page-title {
+	margin-bottom: 30px;
+}
+
 .col-md-12 {
 	padding-right: 0;
 	padding-left: 0;
@@ -33,6 +37,7 @@
 
 .breadcrumb {
 	background-color: white;
+	padding-top: 0;
 }
 
 .breadcrumb li:after {
@@ -44,8 +49,4 @@
 
 .breadcrumb li a, .breadcrumb li span {
 	padding: 0.5em 1.7em .5em 1.3em;
-}
-
-.l-wrapper .block-system-breadcrumb {
-	padding-top: 0;
 }
