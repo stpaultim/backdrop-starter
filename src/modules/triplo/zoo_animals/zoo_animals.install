@@ -43,7 +43,6 @@
       'entity_type' => 'node',
       'label' => 'Tags',
       'bundle' => 'animals',
-      'description' => $help,
       'widget' => array(
         'type' => 'taxonomy_autocomplete',
         'weight' => -4,
@@ -67,10 +66,29 @@
         'body' => array(
           LANGUAGE_NONE => array(
             array(
-              'value' => st('This is my test post. By Tim Erickson.
-                This is line
-                This is line 3
-                THis is line 4'),
+              'value' => st('Elephants, the largest existing land animals, are mammals of the family 
+              Elephantidae. Three species are currently recognised: the African bush elephant, the African 
+              forest elephant, and the Asian elephant. Elephantidae is the only surviving family of the order 
+              Proboscidea; extinct members include the mastodons. The family Elephantidae also contains 
+              several now-extinct groups, including the mammoths and straight-tusked elephants. African 
+              elephants have larger ears and concave backs, whereas Asian elephants have smaller ears, 
+              and convex or level backs. Distinctive features of all elephants include a long trunk, tusks, 
+              large ear flaps, massive legs, and tough but sensitive skin. The trunk, also called a proboscis, 
+              is used for breathing, bringing food and water to the mouth, and grasping objects. Tusks, 
+              which are derived from the incisor teeth, serve both as weapons and as tools for moving 
+              objects and digging. The large ear flaps assist in maintaining a constant body temperature 
+              as well as in communication. The pillar-like legs carry their great weight.
+
+              Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia and are 
+              found in different habitats, including savannahs, forests, deserts, and marshes. They are 
+              herbivorous, and they stay near water when it is accessible. They are considered to be keystone 
+              species, due to their impact on their environments. Other animals tend to keep their distance 
+              from elephants; the exception is their predators such as lions, tigers, hyenas, and wild dogs, 
+              which usually target only young elephants (calves). Elephants have a fission–fusion society, 
+              in which multiple family groups come together to socialise. Females (cows) tend to live in 
+              family groups, which can consist of one female with her calves or several related females 
+              with offspring. The groups, which do not include bulls, are led by the (usually) oldest 
+              cow, known as the matriarch.'),
             ),
           ),
         ),
@@ -83,6 +101,27 @@
     );
     $post->save();
 
+    $post = new Node(
+      array(
+        'title' => st('Lion'),
+        'body' => array(
+          LANGUAGE_NONE => array(
+            array(
+              'value' => st('The lion (Panthera leo) is a species in the family Felidae; it is a muscular, deep-chested cat with a short, rounded head, a reduced neck and round ears, and a hairy tuft at the end of its tail. It is sexually dimorphic; male lions have a prominent mane, which is the most recognisable feature of the species. With a typical head-to-body length of 184–208 cm (72–82 in) they are larger than females at 160–184 cm (63–72 in). It is a social species, forming groups called prides. A lion pride consists of a few adult males, related females and cubs. Groups of female lions usually hunt together, preying mostly on large ungulates. The lion is an apex and keystone predator, although some lions scavenge when opportunities occur, and have been known to hunt humans, although the species typically does not.
+
+                Typically, the lion inhabits grasslands and savannas but is absent in dense forests. It is usually more diurnal than other big cats, but when persecuted it adapts to being active at night and at twilight. In the Pleistocene, the lion ranged throughout Eurasia, Africa and North America but today it has been reduced to fragmented populations in Sub-Saharan Africa and one critically endangered population in western India. It has been listed as Vulnerable on the IUCN Red List since 1996 because populations in African countries have declined by about 43% since the early 1990s. Lion populations are untenable outside designated protected areas. Although the cause of the decline is not fully understood, habitat loss and conflicts with humans are the greatest causes for concern.'),
+            ),
+          ),
+        ),
+        'tags' => 'Mammals',
+        'uid' => 1,
+        'status' => 1,
+        'promote' => 1,
+        'type' => 'post',
+      )
+    );
+    $post->save();
+    cache_clear_all();
   }
 
 

@@ -207,5 +207,6 @@ $info = array(
     'css/component/comment.css',
     'css/component/caption.css',
     'css/skin.css',
+    'css/custom/tatsu-base.css',
   ),
 );
