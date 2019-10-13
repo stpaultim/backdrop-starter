@@ -104,7 +104,7 @@ function triplo_install() {
   config_set('layout.layout.default', 'layout_template', $default_layout);
 
   config_set('layout.layout.default','content.84c43df4-1165-4faf-8700-c362a7153c0b.data.settings.block_settings.menu', 'main-menu');
-
+  config_set('layout.layout.default','positions.header', array('84c43df4-1165-4faf-8700-c362a7153c0b'));
 
   // Enable Basis theme and set it as default theme instead of Stark.
   // @see system_install()
@@ -462,4 +462,8 @@ function triplo_install() {
   config_set('system.core', 'preprocess_css', '1');
   config_set('system.core', 'preprocess_js', '1');
   config_set('system.core', 'cache', '1');
+
+  // Remove the default nav block in Drupal core
+  config_set('layout.layout.default','positions.header', array('84c43df4-1165-4faf-8700-c362a7153c0b'));
+  config_clear('layout.layout.default','content.13b2f325-af26-40bb-8c61-97fe1d93f19f');
 }

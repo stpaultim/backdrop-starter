@@ -1,12 +1,10 @@
 <?php
 
   function zoo_animals_install() {
-
-
-    $types = array(
-      array(
+    $type = array(
         'type' => 'animals',
         'name' => st('Animals'),
+        'base' => 'node_content',
         'description' => st("My favorite animals."),
         'settings' => array(
           'status_default' => NODE_PUBLISHED,
@@ -23,26 +21,42 @@
           'menu_options' => array('main-menu'),
         ),
         'is_new' => TRUE,
-      ),
     );
 
-    foreach ($types as $type) {
-      $type = node_type_set_defaults($type);
-      node_type_save($type);
-      node_add_body_field($type);
-    }
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
 
-        // Add default alias for page content types.
+    // Add default alias for page content types.
     config('path.settings')
       ->set('node_page_pattern', '[node:title]')
       ->set('node_post_pattern', 'animals/[node:title]')
       ->save();
 
+    cache_clear_all();
+
+    $field = array(
+      'field_name' => 'field_animals_tags',
+      'type' => 'taxonomy_term_reference',
+      // Set cardinality to unlimited for tagging.
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'settings' => array(
+        'allowed_values' => array(
+          array(
+            'vocabulary' => 'tags',
+            'parent' => 0,
+          ),
+        ),
+      ),
+    );
+    field_create_field($field);
+
     $instance = array(
-      'field_name' => 'field_tags',
+      'field_name' => 'field_animals_tags',
       'entity_type' => 'node',
       'label' => 'Tags',
       'bundle' => 'animals',
+      'description' => st('Enter a comma-separated list of words to describe your content.'),
       'widget' => array(
         'type' => 'taxonomy_autocomplete',
         'weight' => -4,
@@ -60,69 +74,192 @@
     );
     field_create_instance($instance);
 
-    $post = new Node(
-      array(
-        'title' => st('Elephants'),
-        'body' => array(
-          LANGUAGE_NONE => array(
-            array(
-              'value' => st('Elephants, the largest existing land animals, are mammals of the family 
-              Elephantidae. Three species are currently recognised: the African bush elephant, the African 
-              forest elephant, and the Asian elephant. Elephantidae is the only surviving family of the order 
-              Proboscidea; extinct members include the mastodons. The family Elephantidae also contains 
-              several now-extinct groups, including the mammoths and straight-tusked elephants. African 
-              elephants have larger ears and concave backs, whereas Asian elephants have smaller ears, 
-              and convex or level backs. Distinctive features of all elephants include a long trunk, tusks, 
-              large ear flaps, massive legs, and tough but sensitive skin. The trunk, also called a proboscis, 
-              is used for breathing, bringing food and water to the mouth, and grasping objects. Tusks, 
-              which are derived from the incisor teeth, serve both as weapons and as tools for moving 
-              objects and digging. The large ear flaps assist in maintaining a constant body temperature 
-              as well as in communication. The pillar-like legs carry their great weight.
+    // Many of the following values will be defaulted, they're included here as an illustrative examples.
+    // See https://api.backdropcms.org/api/function/field_create_instance/1
+    $instance = array(
+      'field_name' => 'field_image',
+      'entity_type' => 'node',
+      'label' => 'Image',
+      'bundle' => 'animals',
+      'description' => st('Upload an image to go with this animal.'),
+      'required' => FALSE,
 
-              Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia and are 
-              found in different habitats, including savannahs, forests, deserts, and marshes. They are 
-              herbivorous, and they stay near water when it is accessible. They are considered to be keystone 
-              species, due to their impact on their environments. Other animals tend to keep their distance 
-              from elephants; the exception is their predators such as lions, tigers, hyenas, and wild dogs, 
-              which usually target only young elephants (calves). Elephants have a fission–fusion society, 
-              in which multiple family groups come together to socialise. Females (cows) tend to live in 
-              family groups, which can consist of one female with her calves or several related females 
-              with offspring. The groups, which do not include bulls, are led by the (usually) oldest 
-              cow, known as the matriarch.'),
-            ),
-          ),
+      'settings' => array(
+        'file_directory' => 'field/image',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => TRUE,
+        'title_field' => '',
+      ),
+
+      'widget' => array(
+        'type' => 'image_image',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+          'preview_image_style' => 'thumbnail',
         ),
-        'tags' => 'Mammals',
-        'uid' => 1,
-        'status' => 1,
-        'promote' => 1,
-        'type' => 'post',
-      )
-    );
-    $post->save();
+        'weight' => -1,
+      ),
 
-    $post = new Node(
-      array(
-        'title' => st('Lion'),
-        'body' => array(
-          LANGUAGE_NONE => array(
-            array(
-              'value' => st('The lion (Panthera leo) is a species in the family Felidae; it is a muscular, deep-chested cat with a short, rounded head, a reduced neck and round ears, and a hairy tuft at the end of its tail. It is sexually dimorphic; male lions have a prominent mane, which is the most recognisable feature of the species. With a typical head-to-body length of 184–208 cm (72–82 in) they are larger than females at 160–184 cm (63–72 in). It is a social species, forming groups called prides. A lion pride consists of a few adult males, related females and cubs. Groups of female lions usually hunt together, preying mostly on large ungulates. The lion is an apex and keystone predator, although some lions scavenge when opportunities occur, and have been known to hunt humans, although the species typically does not.
-
-                Typically, the lion inhabits grasslands and savannas but is absent in dense forests. It is usually more diurnal than other big cats, but when persecuted it adapts to being active at night and at twilight. In the Pleistocene, the lion ranged throughout Eurasia, Africa and North America but today it has been reduced to fragmented populations in Sub-Saharan Africa and one critically endangered population in western India. It has been listed as Vulnerable on the IUCN Red List since 1996 because populations in African countries have declined by about 43% since the early 1990s. Lion populations are untenable outside designated protected areas. Although the cause of the decline is not fully understood, habitat loss and conflicts with humans are the greatest causes for concern.'),
-            ),
-          ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'settings' => array('image_style' => 'large', 'image_link' => ''),
+          'weight' => -1,
         ),
-        'tags' => 'Mammals',
-        'uid' => 1,
-        'status' => 1,
-        'promote' => 1,
-        'type' => 'post',
-      )
+        'teaser' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'settings' => array(
+            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_float' => 'right',
+          ),
+          'weight' => -1,
+        ),
+      ),
     );
-    $post->save();
-    cache_clear_all();
+    field_create_instance($instance);
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Elephants';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $elephant = file_get_contents($module_path . '/animals_txt/elephant.txt');
+    $node->body['und'][] = array('value' => $elephant, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Fox';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $fox = file_get_contents($module_path . '/animals_txt/fox.txt');
+    $node->body['und'][] = array('value' => $fox, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Giraffe';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $giraffe = file_get_contents($module_path . '/animals_txt/giraffe.txt');
+    $node->body['und'][] = array('value' => $giraffe, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Lion';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $lion = file_get_contents($module_path . '/animals_txt/lion.txt');
+    $node->body['und'][] = array('value' => $lion, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Llama';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $llama = file_get_contents($module_path . '/animals_txt/llama.txt');
+    $node->body['und'][] = array('value' => $llama, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Panda';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $panda = file_get_contents($module_path . '/animals_txt/panda.txt');
+    $node->body['und'][] = array('value' => $panda, 'format' => 'filtered_html');
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
   }
+
 
 
   
