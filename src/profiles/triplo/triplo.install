@@ -104,7 +104,9 @@ function triplo_install() {
   config_set('layout.layout.default', 'layout_template', $default_layout);
 
   config_set('layout.layout.default','content.84c43df4-1165-4faf-8700-c362a7153c0b.data.settings.block_settings.menu', 'main-menu');
+  // Remove the default nav block in Backdrop core default layout
   config_set('layout.layout.default','positions.header', array('84c43df4-1165-4faf-8700-c362a7153c0b'));
+  config_clear('layout.layout.default','content.13b2f325-af26-40bb-8c61-97fe1d93f19f');
 
   // Enable Basis theme and set it as default theme instead of Stark.
   // @see system_install()
@@ -112,8 +114,8 @@ function triplo_install() {
   $triplo_theme = 'tatsu';
   config_set('system.core', 'theme_default', $triplo_theme);
   theme_enable(array($default_theme, 'tatsu'));
-//  theme_enable(array($triplo_theme));
-  // theme_disable(array('stark'));
+  // TODO: Does this need to be here?
+  theme_disable(array('stark'));
 
 
   // Set front page to "home".
@@ -417,6 +419,7 @@ function triplo_install() {
     'view the administration theme',
     'access administration bar',
     'access content overview',
+    'administer nodes',
     'access administration pages',
     'access site in maintenance mode',
     'flush caches',
@@ -424,7 +427,8 @@ function triplo_install() {
     'delete terms in tags',
     'administer taxonomy',
     'search content',
-    'use advanced search'
+    'use advanced search',
+    'administer backup and migrate'
   );
   user_role_grant_permissions("editor", $editor_permissions);
 
@@ -463,7 +467,37 @@ function triplo_install() {
   config_set('system.core', 'preprocess_js', '1');
   config_set('system.core', 'cache', '1');
 
-  // Remove the default nav block in Drupal core
-  config_set('layout.layout.default','positions.header', array('84c43df4-1165-4faf-8700-c362a7153c0b'));
-  config_clear('layout.layout.default','content.13b2f325-af26-40bb-8c61-97fe1d93f19f');
+  $uuid = 'e44a8a0c-7179-4e1f-b505-5b9d32823a4f';
+  $block = array(
+    'content.' . $uuid => array(
+      'plugin' => 'dashboard_plus:manage_content',
+      'data' => array(
+        'module' => 'dashboard_plus',
+        'delta' => 'manage_content',
+        'settings' => array(
+          'title_display' => 'default',
+          'title' => '',
+          'style' => 'default',
+          'block_settings' => '',
+          'contexts' => '',
+          'types' => '',
+        ),
+        'uuid' => $uuid,
+        'style' => array(
+          'plugin' => 'default',
+          'data' => array(
+            'settings' => array(
+              'classes' => '',
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  config_set_multiple('layout.layout.dashboard', $block );
+  config_set('layout.layout.dashboard','positions.half1', array('e44a8a0c-7179-4e1f-b505-5b9d32823a4f', '8ebebe78-4aa4-4d08-a79f-2463daf79863', 'f149b0ac-ff4c-46f5-8402-ee1aac572dfb'));
+  config_clear('layout.layout.dashboard', 'content.5a4ec847-16c1-45dd-b168-58afed5081d4');
+  config_clear('layout.layout.dashboard', 'content.aab75ee1-7a16-4137-b253-83a0f6323936');
+
 }

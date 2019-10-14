@@ -1,0 +1,46 @@
+{
+    "_config_name": "layout.flexible.minneapolis",
+    "name": "minneapolis",
+    "title": "Minneapolis",
+    "description": "",
+    "rows": {
+        "0e47964a-e341-4f9c-a100-f43a35946f95": {
+            "contains": "region_12",
+            "element": "header",
+            "classes": "",
+            "container": "container",
+            "region_names": {
+                "region_name_0": "Header"
+            }
+        },
+        "354f8b40-47b9-421a-af5e-943b0afa6339": {
+            "contains": "region_12",
+            "element": "div",
+            "classes": "",
+            "container": "no_container",
+            "region_names": {
+                "region_name_0": "Hero"
+            }
+        },
+        "b324ad1f-a7e1-4824-bc1c-28d1fb82b98a": {
+            "contains": "region_12",
+            "element": "",
+            "classes": "",
+            "container": "container",
+            "region_names": {
+                "region_name_0": "Content"
+            }
+        },
+        "77be24ad-facb-4ac3-9d18-2498b4614c27": {
+            "contains": "region_4_4_4",
+            "element": "footer",
+            "classes": "",
+            "container": "container",
+            "region_names": {
+                "region_name_0": "Footer Left",
+                "region_name_1": "Footer Center",
+                "region_name_2": "Footer Right"
+            }
+        }
+    }
+}

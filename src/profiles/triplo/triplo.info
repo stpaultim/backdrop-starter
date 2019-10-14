@@ -44,4 +44,7 @@ dependencies[] = googleanalytics
 dependencies[] = views_bootstrap
 dependencies[] = submitted_by
 dependencies[] = configurable_block_style
+dependencies[] = manualcrop
+dependencies[] = imagesloaded
+dependencies[] = imgareaselect
 
