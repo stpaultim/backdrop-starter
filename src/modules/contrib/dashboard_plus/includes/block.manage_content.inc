@@ -41,7 +41,7 @@ class DashboardManageContentBlock extends Block {
    */
   function getContent() {
     $node_types = node_type_get_types();
-    $access = user_access('administer content types');
+    $access = user_access('access content overview');
     //    $options = array('destination' => current_path());
     $header = array(
       array('data' => t('Content type')),
@@ -89,14 +89,6 @@ class DashboardManageContentBlock extends Block {
       '#header' => $header,
       '#rows' => $rows,
     );
-
-    if ($access) {
-      $panel['link'] = array(
-        '#theme' => 'link',
-        '#path' => 'admin/structure/types',
-        '#text' => t('Manage content types'),
-      );
-    }
 
     return $panel;
   }
