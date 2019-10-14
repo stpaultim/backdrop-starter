@@ -134,7 +134,7 @@
     $node->language = LANGUAGE_NONE;
     $node->uid = 1;
     $node->status = 1;
-    $node->promote = 0;
+    $node->promote = 1;
     $node->comment = 0;
 
     // Save your field data.
@@ -190,7 +190,7 @@
     $node->language = LANGUAGE_NONE;
     $node->uid = 1;
     $node->status = 1;
-    $node->promote = 0;
+    $node->promote = 1;
     $node->comment = 0;
 
     // Save your field data.
@@ -219,7 +219,7 @@
     $node->language = LANGUAGE_NONE;
     $node->uid = 1;
     $node->status = 1;
-    $node->promote = 0;
+    $node->promote = 1;
     $node->comment = 0;
 
     // Save your field data.
@@ -271,7 +271,7 @@
     $node->language = LANGUAGE_NONE;
     $node->uid = 1;
     $node->status = 1;
-    $node->promote = 0;
+    $node->promote = 1;
     $node->comment = 0;
 
     // Save your field data.
