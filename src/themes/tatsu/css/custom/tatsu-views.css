@@ -1,0 +1,22 @@
+
+/*         Testimonials        */
+
+.views-view-grid .views-grid-box {
+    border-color: transparent;
+}
+
+.view-id-testimonials .field-content {
+    display: grid;
+    grid-template-columns: 66% 33%;
+}
+
+.view-id-testimonials .field-content div {
+    padding: 0 5% 5% 5%;
+}
+
+.view-id-testimonials .field-content p {
+    font-style: italic;
+}
+
+
+

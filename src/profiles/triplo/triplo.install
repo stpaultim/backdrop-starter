@@ -467,6 +467,9 @@ function triplo_install() {
   config_set('system.core', 'preprocess_js', '1');
   config_set('system.core', 'cache', '1');
 
+  // Views_bootstrap config
+  config_set('views_bootstrap.settings', 'include_bootstrap_assets', 'true');
+
   $uuid = 'e44a8a0c-7179-4e1f-b505-5b9d32823a4f';
   $block = array(
     'content.' . $uuid => array(

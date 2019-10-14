@@ -1,0 +1,5 @@
+type = module
+name = A Waffle
+description = Debugging module
+package = Triplo
+backdrop = 1.x

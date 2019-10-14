@@ -53,3 +53,8 @@ body a {
 .breadcrumb li a, .breadcrumb li span {
 	padding: 0.5em 1.7em .5em 1.3em;
 }
+
+h2.block-title {
+	margin-bottom: 2.5rem;
+}
+
