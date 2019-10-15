@@ -234,11 +234,10 @@ function manualcrop_field_attach_submit($entity_type, $entity, $form, &$form_sta
      // The user is not allowed to crop images.
      return;
   }
- 
-  if (isset($form['#form_id']) && $form['#form_id'] == 'file_entity_edit') {
-     // Skip the file_entity_edit form because it may use revisions and
-     // we want to save our crop data when the revision id is known.
-     return;
+  if (isset($form['#form_id']) && $form['#form_id'] === 'file_entity_edit' && module_exists('file_entity_revisions')) {
+    // Skip the file_entity_edit form because it may use revisions and
+    // we want to save our crop data when the revision id is known.
+    return;
   }
   
   manualcrop_croptool_submit($form, $form_state);
@@ -334,6 +333,11 @@ function manualcrop_media_element_after_build($element) {
 
   // Add the options to the element.
   $element['#media_options']['global'] += $data;
+
+  // Update the cached options.
+  $element_js_class = drupal_html_class('js-media-element-' . $element['#id']);
+  $cid = $element['browse_button']['#attached']['js'][0]['data']['media']['elements']['.' . $element_js_class]['global']['options'];
+  cache_set('media_options:' . $cid, $element['#media_options']['global'], 'cache_form', REQUEST_TIME + 21600);
 
   // Attach the options as javascript settings.
   if (!empty($element['#attached']['js'])) {
@@ -861,6 +865,10 @@ function manualcrop_reuse_effect(&$image, $data) {
 
   // Load the style to reuse.
   $style = image_style_load($data['reuse_crop_style']);
+
+  if (!$style) {
+    return FALSE;
+  }
 
   if (empty($data['apply_all_effects'])) {
     // Apply only the crop effect.
