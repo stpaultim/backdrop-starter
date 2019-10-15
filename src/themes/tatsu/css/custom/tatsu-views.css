@@ -18,5 +18,6 @@
     font-style: italic;
 }
 
-
-
+.block-views-testimonials-block h2.block-title {
+    text-align: center;
+}
