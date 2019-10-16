@@ -2,7 +2,7 @@
     "_config_name": "field.field.field_image",
     "field_name": "field_image",
     "type": "image",
-    "cardinality": "1",
+    "cardinality": 1,
     "locked": false,
     "settings": {
         "uri_scheme": "public",

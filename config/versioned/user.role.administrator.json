@@ -144,26 +144,6 @@
         "access devel information",
         "execute php code",
         "switch users",
-        "access administration bar",
-        "create events content",
-        "edit own events content",
-        "edit any events content",
-        "delete own events content",
-        "delete any events content",
-        "geocoder_service_all_handlers",
-        "geocoder_service_handler_bing",
-        "geocoder_service_handler_exif",
-        "geocoder_service_handler_google",
-        "geocoder_service_handler_gpx",
-        "geocoder_service_handler_json",
-        "geocoder_service_handler_kml",
-        "geocoder_service_handler_latlon",
-        "geocoder_service_handler_mapbox",
-        "geocoder_service_handler_mapquest_nominatim",
-        "geocoder_service_handler_mapzen",
-        "geocoder_service_handler_openstreetmap_nominatim",
-        "geocoder_service_handler_wkt",
-        "geocoder_service_handler_yahoo",
-        "geocoder_service_handler_yandex"
+        "access administration bar"
     ]
 }

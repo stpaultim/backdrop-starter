@@ -44,6 +44,5 @@
     "webform_update_batch_size": "100",
     "webform_disabled_components": [],
     "webform_export_path": "temporary://",
-    "webform_fieldset_wrap": false,
-    "webform_node_events": false
+    "webform_fieldset_wrap": false
 }

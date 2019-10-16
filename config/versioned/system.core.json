@@ -63,9 +63,9 @@
     "site_favicon_path": "core/misc/favicon.ico",
     "site_favicon_mimetype": "image/vnd.microsoft.icon",
     "site_frontpage": "home",
-    "site_name": "Triplo",
+    "site_name": "Peanut",
     "site_logo_theme": 0,
-    "site_logo_path": "public://triplo-mark-space_0.png",
+    "site_logo_path": "",
     "site_mail": "noreply@sites.triplo.co",
     "site_slogan": "",
     "theme_default": "tatsu",
@@ -97,11 +97,5 @@
         5,
         6
     ],
-    "x_frame_options": "SAMEORIGIN",
-    "site_logo_attributes": {
-        "width": null,
-        "height": null
-    },
-    "site_favicon_upload": "",
-    "site_logo_upload": ""
+    "x_frame_options": "SAMEORIGIN"
 }
