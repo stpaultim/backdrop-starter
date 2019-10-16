@@ -1,0 +1,17 @@
+{
+    "_config_name": "geocoder.settings",
+    "geocoder_apikey_yahoo": "",
+    "geocoder_apikey_yandex": "",
+    "geocoder_apikey_bing": "",
+    "geocoder_apikey_mapzen": "",
+    "geocoder_apikey_mapbox": "",
+    "geocoder_apikey_google": "AIzaSyCPZ5ZGiWc7LLzPx16KHwF6QCVsN1wgubI",
+    "geocoder_google_auth_method": "2",
+    "geocoder_google_client_id": "",
+    "geocoder_google_private_key": "",
+    "geocoder_google_delay": "0",
+    "geocoder_cache_empty_results": 1,
+    "geocoder_log_empty_results": 0,
+    "geocoder_recode": 0,
+    "geocoder_cache_ttl": 0
+}
