@@ -47,4 +47,5 @@ dependencies[] = configurable_block_style
 dependencies[] = manualcrop
 dependencies[] = imagesloaded
 dependencies[] = imgareaselect
+dependencies[] = metatag
 

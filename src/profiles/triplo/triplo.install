@@ -189,11 +189,11 @@ function triplo_install() {
   // Create an initial post to welcome users on install.
   $post = new Node(
     array(
-      'title' => st('Your first post!'),
+      'title' => st('Welcome'),
       'body' => array(
         LANGUAGE_NONE => array(
           array(
-            'value' => st('This is your first post! You may edit or delete it.'),
+            'value' => st('If you are having difficulties accessing or using your Backdrop CMS site, please contact us at info@triplo.co or visit us at http://backdrop.sites.triplo.co.'),
           ),
         ),
       ),
