@@ -1,0 +1,13 @@
+type = module
+name = FlexSlider Views
+description = Provides a FlexSlider views style plugin.
+backdrop = 1.x
+package = FlexSlider
+
+dependencies[] = views
+dependencies[] = flexslider
+
+; Added by Backdrop CMS packaging script on 2016-08-02
+project = flexslider
+version = 1.x-2.0.1
+timestamp = 1470186085

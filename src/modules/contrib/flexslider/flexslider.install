@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * Installation actions for FlexSlider
+ */
+
+/**
+ * Implements hook_update_N().
+ *
+ * Update variables to config.
+ */
+function flexslider_update_1000(&$sandbox) {
+  // Migrate variables to config.
+  config_set('flexslider.settings', 'debug', update_variable_get('flexslider_debug', FALSE));
+  // Delete variables.
+  update_variable_del('flexslider_debug');
+}
