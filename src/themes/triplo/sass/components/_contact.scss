@@ -1,0 +1,46 @@
+.page-node-33 {
+	.l-content {
+		-webkit-flex: none;
+		flex: none;
+		max-width: none;
+		width: 50%;
+		.block {
+			.block-title {
+				font-size: $medium-font;
+				margin: 0 0 30px;
+			}
+			.block-content {
+				form {
+					input {
+						width: 100%;
+						&.form-checkbox {
+							width: auto;
+						}
+					}
+				}
+			}
+		}
+		@include md {
+			padding: 0 25px;
+			width: 100%;
+		}
+	}
+	.l-sidebar {
+		-webkit-flex: none;
+		flex: none;
+		max-width: none;
+		width: 50%;
+		.block-hero {
+			background: none;
+			padding: 0;
+			width: 100%;
+			.block-title {
+				font-size: $medium-font;
+				margin: 0 0 30px;
+			}
+		}
+		@include md {
+			width: 100%;
+		}
+	}
+}

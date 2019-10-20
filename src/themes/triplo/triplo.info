@@ -1,0 +1,12 @@
+name = Triplo custom theme
+description = This is a custom subtheme for Triplo!.
+backdrop = 1.x
+base theme = basis
+version = BACKDROP_VERSION
+
+stylesheets[all][] = font-awesome/css/font-awesome.css
+stylesheets[all][] = jquery-ui/jquery-ui.css
+stylesheets[all][] = css/styles.css
+
+scripts[] = jquery-ui/jquery-ui.js
+scripts[] = js/scripts.js

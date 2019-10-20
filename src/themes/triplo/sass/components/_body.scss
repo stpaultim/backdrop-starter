@@ -1,0 +1,186 @@
+.scroll_to_top {
+	background-color: rgba(0,0,0,0.4);
+	border: 2px solid #fff;
+	bottom: 20px;
+	cursor: pointer;
+	display: none;
+	height: 40px;
+	position: fixed;
+	right: 20px;
+	width: 40px;
+	z-index: 99999;
+	transform: rotate(0deg);
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-ms-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.scroll_to_top_button {
+	content: "";
+	display: block;
+	position: relative;
+	left: 11px;
+	top: 14px;
+	width: 15px;
+	height: 15px;
+	border-right: 3px solid white;
+	border-top: 3px solid white;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.l-top .block-hero {
+	background: rgba(137,207,201, 1);
+	margin-bottom: 0;
+	margin-top: -8px;
+	padding: 100px 0;
+	.block-title {
+		color: $white;
+		font-size: $big-font;
+		text-align: center;
+	}
+	.block-content {
+		p {
+			color: $white;
+			font-size: $x-small-font;
+			text-align: center;
+		}
+		.read_more_about {
+			text-align: right;
+			a {
+				border: 2px solid $white;
+				color: $white;
+				padding: 15px 30px;
+				text-decoration: none;
+				-webkit-transition: all 0.5s; /* For Safari 3.1 to 6.0 */
+				transition: all 0.5s;
+				&:hover {
+					background: rgba(0, 0, 0, 0.4);
+				}
+			}
+			@include md {
+				margin-top: 50px;
+				text-align: center;
+			}
+		}
+	}
+}
+.testimonial {
+	background: url("../images/testimonial_bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: bottom;
+	.testimonial_wrapper {
+		background: rgba(137,207,201,0.8);
+		padding: 100px 15px;
+		#testimonial {
+			background: none;
+			border: 0;
+			.slides {
+				li {
+					.views-field-field-testimonial-image {
+						img {
+							border: 5px solid $white;
+							border-radius: 100px;
+							height: 200px;
+							margin: 0 auto;
+							width: 200px;
+						}
+					}
+					.views-field-title {
+						color: $white;
+						font-size: $big-font;
+						padding: 15px 0;
+						text-align: center;
+					}
+					.views-field-body {
+						.field-content {
+							color: $white;
+							font-size: $x-small-font;
+							margin: 0 auto;
+							max-width: 800px;
+							position: relative;
+							text-align: center;
+							&:before {
+								background: url("../images/quotes.png");
+								background-repeat: no-repeat;
+								background-position: left;
+								background-size: cover;
+								content: "";
+								height: 20px;
+								left: -40px;
+								position: absolute;
+								top: 0;
+								width: 25px;
+								@include lg {
+									display: none;
+								}
+							}
+							&:after {
+								background: url("../images/quotes.png");
+								background-repeat: no-repeat;
+								background-position: right;
+								background-size: cover;
+								bottom: 0;
+								content: "";
+								height: 20px;
+								position: absolute;
+								right: -40px;
+								width: 25px;
+								@include lg {
+									display: none;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.client {
+	padding: 100px 0;
+	.client_wrapper {
+		padding: 0 8px;
+		.view-content {
+			&:before {
+				content: "";
+				display: table;
+			}
+			&:after {
+				clear: both;
+				content: "";
+				display: table;
+			}
+			.views-row {
+				float: left;
+				height: 100px;
+				margin-bottom: 15px;
+				padding: 0 7px;
+				text-align: center;
+				width: 20%;
+				.views-field-field-client-logo {
+					img {
+						max-height: 100px;
+						width: auto;
+					}
+				}
+				@include lg {
+					width: 25%;
+				}
+				@include md {
+					width: 50%;
+				}
+			}
+		}
+	}
+}
