@@ -4,6 +4,10 @@
     padding-top: 20px;
 }
 
+.block-hero-image .block-title {
+    font-weight: 900;
+}
+
 .l-header {
     margin-bottom: 0;
 }

@@ -33,9 +33,11 @@ stylesheets[all][] = css/skin.css
 
 stylesheets[all][] = css/custom/tatsu-classes.css
 stylesheets[all][] = css/custom/tatsu-header.css
+stylesheets[all][] = css/custom/tatsu-footer.css
 stylesheets[all][] = css/custom/tatsu-hero.css
 stylesheets[all][] = css/custom/tatsu-base.css
 stylesheets[all][] = css/custom/tatsu-views.css
+stylesheets[all][] = css/custom/tatsu-recipes.css
 
 stylesheets[print][] = css/print.css
 
