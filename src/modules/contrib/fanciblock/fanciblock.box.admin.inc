@@ -77,7 +77,7 @@ function _fanciicon_fontawesome_icon_build($box) {
  * @ingroup themeable
  */
 function theme_fanciblock_fontawesome_icon_build($variables) {
-  $output = '<i class="fa '.$variables['class'].' '.$variables['size'].' '.$variables['looks'].'"' .$variables['style'].$variables['color'].'></i>';
+  $output = '<i class="fa '.$variables['class'].' '.$variables['size'].' '.$variables['looks'].'"' .$variables['style'].'></i>';
   return $output;
 }
 
@@ -206,7 +206,7 @@ function fanciblock_box_edit_box($form, &$form_state, $fanciblock, $boxid, $type
       '#description' => t('Please select font awesome icon. For more info see: <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank">Font Awesome Cheatsheet</a>.'),
     );
     $form['fontawesome_icon_color'] = array(
-      '#type' => 'textfield',
+      '#type' => 'color',
       '#title' => t('Font Awesome icon color'),
       '#default_value' => $box['fontawesome_icon_color'],
       '#description' => t('Please select icon color.'),
