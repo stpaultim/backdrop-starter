@@ -1,0 +1,135 @@
+.l-header {
+	@include md {
+		background: $white;
+		position: relative;
+	}
+	.l-header-inner{
+		.header-menu {
+			clear: none;
+			float: right;
+			position: inherit;
+			@include md {
+				width: 100%;
+			}
+			.menu-toggle-button {
+				@include md {
+					display: inline-block;
+					padding: 31px 0;
+					position: absolute;
+					right: 0;
+					top: 0;
+					vertical-align: top;
+					.menu-toggle-button-icon {
+						background: $light-green;
+						&:before {
+							background: $light-green;
+						}
+						&:after {
+							background: $light-green;
+						}
+					}
+					.menu-toggle-button-text {
+						color: $light-green;
+					}
+				}
+			}
+			.menu {
+				@include md {
+					border-top: 2px solid $light-green;
+					display: none;
+				}
+				vertical-align: top;
+				li {
+					margin-right: 2px;
+					a {
+						font-size: $tiny-font;
+						padding: 35px 15px;
+						&:hover {
+							background: $light-green;
+							color: $white;
+						}
+						@include lg {
+							padding: 35px 10px;
+						}
+					}
+					&.active {
+						a {
+							background: $light-green;
+							color: $white;
+						}
+					}
+					@include md {
+						background: $white;
+						margin-right: 0;
+						width: 100%;
+						a {
+							color: $black;
+							padding: 10px 15px !important;
+							&:hover {
+								color: $light-green;
+							}
+						}
+						&.active {
+							a {
+								background: $white;
+								color: $light-green;
+							}
+						}
+					}
+				}
+			}
+			.menu-toggle-state:checked ~ .menu {
+				display: block;
+			}
+		}
+	}
+	&.with_header_bg {
+		a {
+			color: $white;
+		}
+		.l-header-inner {
+			.header-menu {
+				ul {
+					li {
+						a {
+							&:hover {
+								background: none;
+								color: $light-green;
+							}
+						}
+						&.active {
+							a {
+								background: none;
+								color: $light-green;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.sticky-header {
+		a {
+			color: $black;
+		}
+		.l-header-inner {
+			.header-menu {
+				.menu-toggle-button {
+					@include md {
+						padding: 21px 0;
+					}
+				}
+				.menu {
+					li {
+						a {
+							padding: 24px 15px;
+							@include lg {
+								padding: 24px 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

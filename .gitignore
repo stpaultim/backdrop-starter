@@ -16,6 +16,7 @@
 */.lando.yml
 .idea
 */.idea
+**/node_modules/*
 
 # Config
 config/active

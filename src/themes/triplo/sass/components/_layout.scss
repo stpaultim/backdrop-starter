@@ -1,0 +1,28 @@
+.layout {
+	height: auto;
+}
+.l-wrapper {
+	overflow: hidden;
+	.l-wrapper-inner {
+		padding: 0;
+		@include md {
+			.l-content {
+				padding: 0 25px;
+			}
+		}
+	}
+}
+.layout-front {
+	overflow: hidden;
+	.l-wrapper {
+		.l-wrapper-inner {
+			max-width: none;
+			@include md {
+				.l-content {
+					padding: 0;
+				}
+			}
+		}
+		margin-top: 0;
+	}
+}
