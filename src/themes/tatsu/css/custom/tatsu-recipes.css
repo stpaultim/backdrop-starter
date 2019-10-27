@@ -23,7 +23,7 @@
 }
 
 
-/*         Tatsu Grid        */
+/*         Portfolio        */
 
 .container .tatsu-grid {
     padding: 40px auto;
@@ -32,15 +32,6 @@
 
 .tatsu-grid {
     padding: 30px 0;
-}
-
-.tatsu-grid.col-lg-2,
-.tatsu-grid.col-lg-3,
-.tatsu-grid.col-lg-4,
-.tatsu-grid.col-lg-5,
-.tatsu-grid.col-lg-6,
-.tatsu-grid.col-lg-16 {
-    max-width: 100%;
 }
 
 .tatsu-grid .view-header h3 {
@@ -54,12 +45,6 @@
     margin: 0 auto 50px;
     max-width: 800px;
     text-align: center;
-}
-
-.tatsu-grid.col-lg-2 .view-content.tatsu  {
-    display: grid;
-    grid-template-columns: 15.416% 15.416% 15.416% 15.416% 15.416% 15.416%;
-    grid-column-gap: 1.5%;
 }
 
 .tatsu-grid.col-lg-3 .view-content.tatsu  {
@@ -119,7 +104,6 @@
         grid-column-gap: 2%;
     }
 
-    .tatsu-grid.col-lg-2 .view-content.tatsu,
     .tatsu-grid.col-lg-3 .view-content.tatsu,
     .tatsu-grid.col-lg-4 .view-content.tatsu,
     .tatsu-grid.col-lg-6 .view-content.tatsu,
@@ -131,7 +115,6 @@
 
 @media (max-width: 450px) {
 
-    .tatsu-grid.col-lg-2 .view-content.tatsu,
     .tatsu-grid.col-lg-3 .view-content.tatsu,
     .tatsu-grid.col-lg-4 .view-content.tatsu,
     .tatsu-grid.col-lg-6 .view-content.tatsu,
