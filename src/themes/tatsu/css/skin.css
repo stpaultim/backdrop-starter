@@ -1,4 +1,4 @@
-/* Special classes for Tatsu theme to be changed by color module */
+  /* Special classes for Tatsu theme to be changed by color module */
 
 .tatsu-header-color {
   background: #20252e;
@@ -24,16 +24,17 @@ body {
   background: #ffffff;
 }
 
-a {
+body a {
   color: #0073bd;
 }
 
-a:focus,
-a:hover {
-  text-decoration: none;
+body a:focus,
+body a:hover {
+  text-decoration: underline;
+  color: #0073bd;
 }
 
-a:active {
+body a:active {
   background: #dddddd;
 }
 
