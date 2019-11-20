@@ -17,6 +17,7 @@ class views_plugin_style_mosaic_grid extends views_plugin_style {
     $options['caption']        = array('default' => 'none');
     $options['max_rows']       = array('default' => 0);
     $options['truncate']       = array('default' => false);
+    $options['hide_empty']     = array('default' => true);
 
     return $options;
   }
@@ -48,9 +49,10 @@ class views_plugin_style_mosaic_grid extends views_plugin_style {
     
     // Set options list for caption selector.
     $caption_options = array(
-      'none'    => t('None'),
-      'alt'     => t('Image Alt Tag'),
-      'title'   => t('Image Title Tag'),
+      'none'       => t('None'),
+      'node_title' => t('Content Title'),
+      'alt'        => t('Image Alt Tag'),
+      'title'      => t('Image Title Tag'),
     );
     // Detect if text field is present and add it to the options list.
     $text_field = $this->get_first_non_excluded_text_field()['handler'];
@@ -84,6 +86,13 @@ class views_plugin_style_mosaic_grid extends views_plugin_style {
       '#description' => t("Hide incomplete last row of items."),
       '#default_value' => $this->options['truncate'],
     );
+    
+    $form['hide_empty'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Hide empty fields'),
+      '#description' => t("Do not display items that are empty."),
+      '#default_value' => $this->options['hide_empty'],
+    );
   }
   
   /**
@@ -93,7 +102,7 @@ class views_plugin_style_mosaic_grid extends views_plugin_style {
    * that have field_info.
    */
   protected function get_first_non_excluded_field(string $field_type){
-    $fields = $this->display->handler->get_handlers('field');
+    $fields = $this->view->display_handler->get_handlers('field');
     
     foreach($fields as $field_name => $field) {
       $type = $field->field_info['type'];

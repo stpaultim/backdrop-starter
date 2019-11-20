@@ -3,6 +3,11 @@ description = Provides views style plugin for building image galleries layed out
 backdrop = 1.x
 package = Views
 type = module
-version = 1.x-2.0.0
+version = 1.x-2.0.2
 dependencies[] = views
 configure = admin/config/media/mosaic_grid
+
+; Added by Backdrop CMS packaging script on 2019-10-23
+project = mosaic_grid
+version = 1.x-2.0.2
+timestamp = 1571838389
