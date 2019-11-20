@@ -4,7 +4,7 @@ description = Voting API
 group = Voting API
 file = votingapi.test
 
-; Added by Backdrop CMS packaging script on 2017-12-20
+; Added by Backdrop CMS packaging script on 2019-08-22
 project = votingapi
-version = 1.x-2.12
-timestamp = 1513792311
+version = 1.x-2.15
+timestamp = 1566489192
