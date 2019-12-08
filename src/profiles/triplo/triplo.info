@@ -48,4 +48,5 @@ dependencies[] = manualcrop
 dependencies[] = imagesloaded
 dependencies[] = imgareaselect
 dependencies[] = metatag
+dependencies[] = triplo_feed
 
