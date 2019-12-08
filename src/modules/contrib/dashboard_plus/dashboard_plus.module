@@ -31,6 +31,5 @@ function dashboard_plus_block_view() {
 function dashboard_plus_autoload_info() {
   return array(
     'DashboardManageContentBlock' => 'includes/block.manage_content.inc',
-
   );
 }
