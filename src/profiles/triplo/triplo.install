@@ -470,13 +470,40 @@ function triplo_install() {
   // Views_bootstrap config
   config_set('views_bootstrap.settings', 'include_bootstrap_assets', 'true');
 
-  $uuid = 'e44a8a0c-7179-4e1f-b505-5b9d32823a4f';
+//  $uuid = 'e44a8a0c-7179-4e1f-b505-5b9d32823a4f';
+//  $block = array(
+//    'content.' . $uuid => array(
+//      'plugin' => 'dashboard_plus:manage_content',
+//      'data' => array(
+//        'module' => 'dashboard_plus',
+//        'delta' => 'manage_content',
+//        'settings' => array(
+//          'title_display' => 'default',
+//          'title' => '',
+//          'style' => 'default',
+//          'block_settings' => '',
+//          'contexts' => '',
+//          'types' => '',
+//        ),
+//        'uuid' => $uuid,
+//        'style' => array(
+//          'plugin' => 'default',
+//          'data' => array(
+//            'settings' => array(
+//              'classes' => '',
+//            ),
+//          ),
+//        ),
+//      ),
+//    ),
+//  );
+  $uuid = 'c6b14b4a-259e-41aa-a203-3b03710a7209';
   $block = array(
     'content.' . $uuid => array(
-      'plugin' => 'dashboard_plus:manage_content',
+      'plugin' => 'triplo_feed:news',
       'data' => array(
-        'module' => 'dashboard_plus',
-        'delta' => 'manage_content',
+        'module' => 'triplo_feed',
+        'delta' => 'news',
         'settings' => array(
           'title_display' => 'default',
           'title' => '',
@@ -497,36 +524,9 @@ function triplo_install() {
       ),
     ),
   );
-//  $uuid2 = 'c6b14b4a-259e-41aa-a203-3b03710a7209';
-//  $block2 = array(
-//    'content.' . $uuid2 => array(
-//      'plugin' => 'triplo_feed:news',
-//      'data' => array(
-//        'module' => 'triplo_feed',
-//        'delta' => 'news',
-//        'settings' => array(
-//          'title_display' => 'default',
-//          'title' => '',
-//          'style' => 'default',
-//          'block_settings' => '',
-//          'contexts' => '',
-//          'types' => '',
-//        ),
-//        'uuid' => $uuid2,
-//        'style' => array(
-//          'plugin' => 'default',
-//          'data' => array(
-//            'settings' => array(
-//              'classes' => '',
-//            ),
-//          ),
-//        ),
-//      ),
-//    ),
-//  );
   config_set_multiple('layout.layout.dashboard', $block );
 //  config_set_multiple('layout.layout.dashboard', $block2 );
-  config_set('layout.layout.dashboard','positions.half1', array('c6b14b4a-259e-41aa-a203-3b03710a7209', 'e44a8a0c-7179-4e1f-b505-5b9d32823a4f', '8ebebe78-4aa4-4d08-a79f-2463daf79863', 'f149b0ac-ff4c-46f5-8402-ee1aac572dfb'));
+  config_set('layout.layout.dashboard','positions.half1', array('c6b14b4a-259e-41aa-a203-3b03710a7209', '8ebebe78-4aa4-4d08-a79f-2463daf79863', 'f149b0ac-ff4c-46f5-8402-ee1aac572dfb'));
   config_clear('layout.layout.dashboard', 'content.5a4ec847-16c1-45dd-b168-58afed5081d4');
   config_clear('layout.layout.dashboard', 'content.aab75ee1-7a16-4137-b253-83a0f6323936');
 
