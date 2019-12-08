@@ -35,7 +35,8 @@ class DashboardWelcomeBlock extends Block {
     );
     $build['welcome'] = array(
       '#type' => 'help',
-      '#markup' => t('Here are some links to help get you started:'),
+      '#markup' => t('Recent announcements from Triplo that might be of interest to you. For more 
+      announcements, visit us at http://sites.triplo.co/notifications'),
     );
 
     $build['steps'] = array(

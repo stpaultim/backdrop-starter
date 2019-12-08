@@ -14,7 +14,7 @@ class DashboardTriploNewsBlock extends Block {
    * {@inheritdoc}
    */
   public function getTitle() {
-    return !empty($this->settings['title']) ? check_plain($this->settings['title']) : t('Triplo News');
+    return !empty($this->settings['title']) ? check_plain($this->settings['title']) : t('Triplo Resources & News');
   }
   /**
    * {@inheritdoc}
@@ -46,6 +46,20 @@ class DashboardTriploNewsBlock extends Block {
     $build = array(
       '#theme' => 'dashboard_panel__news',
     );
+    $build['welcome'] = array(
+      '#type' => 'help',
+      '#markup' => t(
+        'Resources
+        <ul>
+            <li><a target="_blank" href="mailto:support@triplo.co">Email us</a></li>
+            <li><a target="_blank" href="http://sites.triplo.co/faq">Triplo: Frequently Asked Questions</a></li>
+        </ul>'
+      ),
+    );
+    $build['notes'] = array(
+      '#type' => 'help',
+      '#markup' => t('Recent announcements from Triplo.'),
+    );
     if (empty($links)) {
       $build['list'] = array(
         '#type' => 'markup',
@@ -58,6 +72,11 @@ class DashboardTriploNewsBlock extends Block {
         '#items' => $links,
       );
     }
+    $build['link'] = array(
+      '#theme' => 'link',
+      '#path' => 'http://sites.triplo.co/notifications',
+      '#text' => t('More announcements'),
+    );
     return $build;
   }
   /**
