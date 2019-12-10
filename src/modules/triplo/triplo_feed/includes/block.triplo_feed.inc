@@ -51,8 +51,8 @@ class DashboardTriploNewsBlock extends Block {
       '#markup' => t(
         'Resources
         <ul>
-            <li><a target="_blank" href="mailto:support@triplo.co">Email us</a></li>
             <li><a target="_blank" href="http://sites.triplo.co/manual/user-manual">Site Building Manual - Triplo Distribution</a></li>
+            <li><a target="_blank" href="mailto:support@triplo.co">Support email</a></li>
         </ul>'
       ),
     );
