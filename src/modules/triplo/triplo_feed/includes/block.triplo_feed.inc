@@ -37,10 +37,10 @@ class DashboardTriploNewsBlock extends Block {
     if ($feed->code === '200') {
       $news = json_decode($feed->data);
       foreach ($news->notifications as $key => $notification) {
-        $links[] = l(
-            <p> . $notification->notification->title,
+        $links[] = '<p>' . l(
+            $notification->notification->title,
             $notification->notification->notification_link
-          ) . ' - ' . $notification->notification->message . </p>;
+          ) . ' - ' . $notification->notification->message .'</p>';
       }
     }
     $build = array(
