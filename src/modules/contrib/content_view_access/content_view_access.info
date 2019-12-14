@@ -1,0 +1,11 @@
+name = Content view access
+description = Provides "View own content" and "View any content" permissions for each content type.
+package = Access control
+
+backdrop = 1.x
+type = module
+
+; Added by Backdrop CMS packaging script on 2018-12-29
+project = content_view_access
+version = 1.x-1.0.1
+timestamp = 1546134746
