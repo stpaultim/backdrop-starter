@@ -1,0 +1,19 @@
+<?php
+
+function recipes_menu() {
+
+  $items['admin/config/development/configuration/recipe'] = array(
+    'title' => 'Recipe Import',
+    'page callback' => 'backdrop_get_form',
+    'page arguments' => array('recipes_import_recipe_form'),
+    'access arguments' => array('synchronize configuration'),
+    'file' => 'recipes.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+  );
+//  $items['admin/config/development/configuration/recipe/import'] = array(
+//    'title' => 'Import',
+//    'type' => MENU_DEFAULT_LOCAL_TASK,
+//  );
+  return $items;
+}
