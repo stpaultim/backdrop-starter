@@ -1,13 +1,13 @@
 <?php
 
-function recipes_menu() {
+function config_batch_import_menu() {
 
   $items['admin/config/development/configuration/recipe'] = array(
     'title' => 'Recipe Import',
     'page callback' => 'backdrop_get_form',
-    'page arguments' => array('recipes_import_recipe_form'),
+    'page arguments' => array('config_batch_import_import_recipe_form'),
     'access arguments' => array('synchronize configuration'),
-    'file' => 'recipes.admin.inc',
+    'file' => 'config_batch_import.admin.inc',
     'type' => MENU_LOCAL_TASK,
     'weight' => 3,
   );

@@ -4,7 +4,7 @@
   /**
    * Form callback; Provide a form for importing a full set of configuration.
    */
-  function recipes_import_recipe_form(array $form, array &$form_state) {
+  function config_batch_import_import_recipe_form(array $form, array &$form_state) {
     $form['description'] = array(
       '#markup' => '<p>' . t('Import a recipe.') . '</p>',
     );
@@ -27,7 +27,7 @@
     return $form;
   }
 
-  function recipes_import_recipe_form_submit(array &$form, array &$form_state) {
+  function config_batch_import_import_recipe_form_submit(array &$form, array &$form_state) {
     if ($fid = $form_state['values']['import_tarball']) {
       // Empty out the existing staging directory.
       $config_storage = config_get_config_storage('staging');
