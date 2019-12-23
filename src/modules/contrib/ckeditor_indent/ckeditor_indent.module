@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Registering CKEditor plugin.
+ */
+
+/**
+ * Implements hook_ckeditor_plugins().
+ */
+function ckeditor_indent_ckeditor_plugins() {
+  $path = backdrop_get_path('module', 'ckeditor_indent') . '/plugins';
+  $plugins['indent'] = array(
+    'file' => 'plugin.js',
+    'path' => $path . '/indent',
+    'css' => array(backdrop_get_path('module', 'ckeditor_indent') . '/css/ckeditor-indent.css'),
+    'enabled callback' => 'ckeditor_indent_plugin_check',
+    'buttons' => array(
+      'Indent' => array(
+        'label' => 'Indent',
+        'image' => $path . '/indent/icons/indent.png',
+      ),
+      'Outdent' => array(
+        'label' => 'Outdent',
+        'image' => $path . '/indent/icons/outdent.png',
+      ),
+    ),
+  );
+  $plugins['indentblock'] = array(
+    'file' => 'plugin.js',
+    'path' => $path . '/indentblock',
+    'enabled callback' => 'ckeditor_indent_plugin_check',
+  );
+  $plugins['indentlist'] = array(
+    'file' => 'plugin.js',
+    'path' => $path . '/indentlist',
+    'enabled callback' => 'ckeditor_indent_plugin_check',
+  );
+  return $plugins;
+}
+
+function ckeditor_indent_plugin_check($format, $plugin_name) {
+  return TRUE;
+}
