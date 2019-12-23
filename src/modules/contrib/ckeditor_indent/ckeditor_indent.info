@@ -1,0 +1,7 @@
+name = CKEditor Indent/Outdent
+description = CKEditor plugin for adding indents and outdents.
+package = User interface
+backdrop = 1.x
+type = module
+
+stylesheets[all][] = css/ckeditor-indent.css
