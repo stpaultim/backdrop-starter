@@ -37,8 +37,6 @@
       $file = file_load($fid);
       $config_storage->importArchive($file->uri);
       file_delete($file->fid);
-
-
       // Dump active directory
 
       // Move all images files
