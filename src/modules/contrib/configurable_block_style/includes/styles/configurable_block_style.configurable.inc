@@ -38,6 +38,7 @@ class ConfigurableBlockStyle extends LayoutHandler {
       'mn_height_amount' => '250',
       'rel_height_amount' => '40',
       'mx_height_amount' => '500',
+      'image_tint' => '.8';
       'height_unit' => 'px',
     );
     $this->is_region = $is_region;
