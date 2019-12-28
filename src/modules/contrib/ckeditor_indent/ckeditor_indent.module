@@ -42,3 +42,8 @@ function ckeditor_indent_ckeditor_plugins() {
 function ckeditor_indent_plugin_check($format, $plugin_name) {
   return TRUE;
 }
+function ckeditor_indent_ckeditor_settings_alter(&$settings, $format) {
+  $settings['indentClasses'] = array('indent1', 'indent2', 'indent3', 'indent4', 'indent5', 'indent6', 'indent7', 'indent8', 'indent9', 'indent10');
+  $settings['indentOffset'] = 20;
+  $settings['indentUnit'] = 'px';
+}

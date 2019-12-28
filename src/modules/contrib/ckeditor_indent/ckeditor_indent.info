@@ -5,3 +5,8 @@ backdrop = 1.x
 type = module
 
 stylesheets[all][] = css/ckeditor-indent.css
+
+; Added by Backdrop CMS packaging script on 2019-12-27
+project = ckeditor_indent
+version = 1.x-1.0.0
+timestamp = 1577495966
