@@ -41,6 +41,10 @@
     text-shadow: 0 0 10px #FFFFFF, 3px 4px 13px #020101;
 }
 
+.block-hero-image .block-content .button {
+    text-shadow: none;
+}
+
 @media (max-width: 800px) {
     .block-hero-image .block-content {
         display: none;
