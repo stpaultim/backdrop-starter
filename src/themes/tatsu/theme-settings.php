@@ -67,6 +67,20 @@ if (module_exists('color')) {
   foreach ($fields as $field) {
     $form['footer'][$field] = color_get_color_element('tatsu', $field, $form);
   }
+
+  $form['buttons'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Buttons Settings'),
+    '#collapsible' => TRUE,
+  );
+  $fields = array(
+    'buttonbackground',
+    'buttonbackgroundhover',
+    'buttontext',
+  );
+  foreach ($fields as $field) {
+    $form['buttons'][$field] = color_get_color_element('tatsu', $field, $form);
+  }
 }
 else {
   $form['color'] = array(

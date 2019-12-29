@@ -21,6 +21,10 @@ $info = array(
     'footer' => t('Footer background'),
     'footertext' => t('Footer text'),
     'footerborder' => t('Footer Border'),
+
+    'buttonbackground' => t('Button background'),
+    'buttonbackgroundhover' => t('Button background hover'),
+    'buttontext' => t('Button text'),
   ),
   // Pre-defined color schemes.
   'schemes' => array(
@@ -46,6 +50,10 @@ $info = array(
         'footer' => '#fffeff',
         'footertext' => '#000100',
         'footerborder' => '#bbbbbc',
+
+        'buttonbackground' => '#722222',
+        'buttonbackgroundhover' => '#343a68',
+        'buttontext' => '#fcfcfc',
       ),
     ),
     'ice' => array(
@@ -70,6 +78,10 @@ $info = array(
         'footer' => '#ffffff',
         'footertext' => '#000100',
         'footerborder' => '#c5c5c5',
+
+        'buttonbackground' => '#722222',
+        'buttonbackgroundhover' => '#343a68',
+        'buttontext' => '#fcfcfc',
       ),
     ),
     'plum' => array(
@@ -94,6 +106,10 @@ $info = array(
         'footer' => '#e7e7e7',
         'footertext' => '#000100',
         'footerborder' => '#89297a',
+
+        'buttonbackground' => '#722222',
+        'buttonbackgroundhover' => '#343a68',
+        'buttontext' => '#fcfcfc',
       ),
     ),
     'goldfish' => array(
@@ -118,6 +134,10 @@ $info = array(
         'footer' => '#f0f1e3',
         'footertext' => '#000100',
         'footerborder' => '#cfd7b2',
+
+        'buttonbackground' => '#722222',
+        'buttonbackgroundhover' => '#343a68',
+        'buttontext' => '#fcfcfc',
       ),
     ),
     'mocha' => array(
@@ -142,6 +162,10 @@ $info = array(
         'footer' => '#7e8f7c',
         'footertext' => '#000100',
         'footerborder' => '#6b7d68',
+
+        'buttonbackground' => '#722221',
+        'buttonbackgroundhover' => '#343a61',
+        'buttontext' => '#fcfcf1',
       ),
     ),
   ),

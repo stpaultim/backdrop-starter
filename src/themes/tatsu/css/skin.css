@@ -630,6 +630,18 @@ button.button-secondary[disabled] {
   color: #cccccc;
 }
 
+.button {
+  border: 4px solid #722222;
+
+  color: #fcfcfc;
+}
+
+.button:hover {
+  border: 4px solid #343a68;
+
+  color: #fcfcfc;
+}
+
 input.form-autocomplete,
 input.form-text,
 input.form-tel,
