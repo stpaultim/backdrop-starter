@@ -42,13 +42,13 @@ if (module_exists('color')) {
 
   $form['primary_tabs'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Tabs and Breadcrumb'),
+    '#title' => t('Tabs and Breadcrumbs'),
     '#collapsible' => TRUE,
   );
   $fields = array(
     'primarytabs',
     'primarytabstext',
-    'buttons',
+    'breadcrumbs',
   );
   foreach ($fields as $field) {
     $form['primary_tabs'][$field] = color_get_color_element('tatsu', $field, $form);

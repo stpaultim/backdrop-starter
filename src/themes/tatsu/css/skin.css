@@ -631,14 +631,12 @@ button.button-secondary[disabled] {
 }
 
 .button {
-  border: 4px solid #722222;
-
+  background: #722222;
   color: #fcfcfc;
 }
 
 .button:hover {
-  border: 4px solid #343a68;
-
+  background: #343a68;
   color: #fcfcfc;
 }
 

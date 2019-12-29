@@ -16,7 +16,7 @@ $info = array(
 
     'primarytabs' => t('Primary Tabs Background'),
     'primarytabstext' => t('Primary Tabs Text'),
-    'buttons' => t('Buttons and Breadcrumb'),
+    'breadcrumbs' => t('Breadcrumbs'),
 
     'footer' => t('Footer background'),
     'footertext' => t('Footer text'),
@@ -45,7 +45,7 @@ $info = array(
 
         'primarytabs' => '#586172',
         'primarytabstext' => '#010000',
-        'buttons' => '#dee2ea',
+        'breadcrumbs' => '#dee2ea',
 
         'footer' => '#fffeff',
         'footertext' => '#000100',
@@ -73,7 +73,7 @@ $info = array(
 
         'primarytabs' => '#888889',
         'primarytabstext' => '#d0d0d0',
-        'buttons' => '#014958',
+        'breadcrumbs' => '#014958',
 
         'footer' => '#ffffff',
         'footertext' => '#000100',
@@ -101,7 +101,7 @@ $info = array(
 
         'primarytabs' => '#2b2b2b',
         'primarytabstext' => '#301313',
-        'buttons' => '#c9d9e3',
+        'breadcrumbs' => '#c9d9e3',
 
         'footer' => '#e7e7e7',
         'footertext' => '#000100',
@@ -129,7 +129,7 @@ $info = array(
 
         'primarytabs' => '#eda766',
         'primarytabstext' => '#e0e4cc',
-        'buttons' => '#4c5038',
+        'breadcrumbs' => '#4c5038',
 
         'footer' => '#f0f1e3',
         'footertext' => '#000100',
@@ -157,7 +157,7 @@ $info = array(
 
         'primarytabs' => '#2b2b2b',
         'primarytabstext' => '#3b3738',
-        'buttons' => '#dec0b4',
+        'breadcrumbs' => '#dec0b4',
 
         'footer' => '#7e8f7c',
         'footertext' => '#000100',
