@@ -45,6 +45,9 @@
     .block-hero-image .block-content {
         display: none;
     }
+    .block-hero-image .block-content .button {
+        display: block;
+    }
     .block-hero-image .block-title {
         font-weight: 600;
         font-size: 40px;
