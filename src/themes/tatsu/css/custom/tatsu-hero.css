@@ -20,12 +20,36 @@
     position: absolute;
     bottom: 0px;
 }
-.block-hero-image .container .block-title {
+.block-hero-image .block-title {
     font-weight: 600;
     font-size: 50px;
+    margin: 70px auto 50px;
     color: white;
     text-align: center;
     text-shadow: 0 0 10px #FFFFFF, 3px 4px 13px #020101;
+}
+
+.block-hero-image .block-content {
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0px auto 70px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF, 3px 4px 13px #020101;
+}
+
+@media (max-width: 800px) {
+    .block-hero-image .block-content {
+        display: none;
+    }
+    .block-hero-image .block-title {
+        font-weight: 600;
+        font-size: 40px;
+        margin: 50px auto 50px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 10px #FFFFFF, 3px 4px 13px #020101;
+    }
 }
 
 /* Overiding css from boxton hero */
