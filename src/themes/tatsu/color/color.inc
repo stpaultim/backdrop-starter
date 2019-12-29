@@ -154,8 +154,5 @@ $info = array(
     'css/base.css',
     'css/layout.css',
     'css/skin.css',
-    'css/custom/tatsu-base.css',
-    'css/custom/tatsu-hero.css',
-    'css/custom/tatsu-recipes.css',
   ),
 );

@@ -1,7 +1,18 @@
-Basis inludes very granular CSS files so that a sub theme can override
-only the files it needs to and inherit the rest.
+Tatsu has incorporated the base css files from Basis and added it's own
+overriding CSS.
+
+We have tried to adhere to the premise of Basis, which inludes very granular 
+CSS files so that a sub theme can override only the files it needs to and 
+inherit the rest.
 
 ## CSS Files
+Directories:
+* Basis - files taken directly from the Backdrop Core theme Basis.
+  This directory should not be altered expect to inherit updates
+  to the Core Basis theme.
+* Tatsu - CSS files specifically added by Tatsu
+* Bootstrap - We've included Bootstrap 
+
 The types of CSS files in the theme include:
 * Base      - Normalizes rendering across browsers.
 * Layout    - Modifies page layout.
