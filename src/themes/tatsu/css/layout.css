@@ -15,7 +15,6 @@
 /* Push the footer down to the bottom of the page. */
 .layout {
   box-sizing: border-box;
-  height: 100vh;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

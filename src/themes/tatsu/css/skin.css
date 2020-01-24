@@ -161,6 +161,11 @@ fieldset .fieldset-legend {
   color: #fffffe;
   padding: 0;
 }
+.header-menu a:hover,
+.header-menu a:active {
+  background: rgba(221,221,221,0.8);
+  text-decoration: none;
+}
 
 @media (min-width: 34em) {
   .l-header-inner {
@@ -175,10 +180,6 @@ fieldset .fieldset-legend {
   text-decoration: none;
 }
 
-.header-menu a:hover,
-.l-header a:active {
-  background: #114a75;
-}
 
 .block-system-header {
   /* Helps center .header-identity-wrapper on smaller screens */
@@ -305,6 +306,10 @@ fieldset .fieldset-legend {
 @media (min-width: 62em) {
   .l-header .menu > li {
     font-size: 1.375em;
+  }
+  .header-menu a {
+    padding: 2.43rem 1.5rem;
+    line-height: 1.25rem;
   }
 }
 
