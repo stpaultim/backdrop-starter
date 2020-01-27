@@ -62,4 +62,7 @@ div.block-layout-custom-block[style] {
     .header-menu ul.links {
         position: relative;
     }
+    .block-hero-image .container .block-title{
+        display: none;
+    }
 }
