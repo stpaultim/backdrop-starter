@@ -20,7 +20,7 @@
     position: absolute;
     bottom: 0px;
 }
-.block-hero-image .container .block-title {
+.block-hero-image .block-title {
     font-weight: 600;
     font-size: 50px;
     color: white;
@@ -62,7 +62,8 @@ div.block-layout-custom-block[style] {
     .header-menu ul.links {
         position: relative;
     }
-    .block-hero-image .container .block-title{
+    .block-hero-image .block-title,
+    .block-hero-image .block-content {
         display: none;
     }
 }
