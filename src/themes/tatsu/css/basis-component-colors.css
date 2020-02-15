@@ -20,6 +20,10 @@ ul.primary li.active a,
   will-change: background-color, color;
 }
 
+ul li a{
+  text-decoration: none;
+}
+
 ul.secondary li a {
   border: 2px solid #e3e2e2;
   transition:

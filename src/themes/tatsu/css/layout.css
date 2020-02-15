@@ -2,7 +2,11 @@
  * @file
  * Component Layout CSS and some Page layout overrides
  */
-
+.layout-flexible-content  {
+  min-height: 100vh;
+  padding-bottom: 200px;
+  position: relative;
+}
 .l-header {
   position: relative;
   margin: 0 0 2rem;
@@ -15,7 +19,6 @@
 /* Push the footer down to the bottom of the page. */
 .layout {
   box-sizing: border-box;
-  height: 100vh;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -37,4 +40,9 @@
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+}
+.l-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
