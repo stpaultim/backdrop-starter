@@ -1,8 +1,7 @@
 type = theme
 name = Tatsu
-description = A flexible theme built on top of basis
+description = A flexible theme inspired by Basis
 backdrop = 1.x
-base theme = basis
 screenshot = screenshot.png
 
 ; Add theme Bootstrap CSS files
