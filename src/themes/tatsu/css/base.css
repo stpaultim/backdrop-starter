@@ -246,7 +246,7 @@ label {
 
 .l-page-title,
 .block:first-of-type {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 footer .block:first-of-type,
@@ -260,7 +260,8 @@ header .block:first-of-type {
 
 .breadcrumb {
   background-color: white;
-  padding-top: 0;
+  padding: 0rem 1rem;
+  margin-top: 0;
 }
 
 .breadcrumb li:after {
@@ -268,10 +269,11 @@ header .block:first-of-type {
   width: .7em;
   height: .7em;
   border-width: 1px 1px 0 0;
+  right: 10px;
 }
 
 .breadcrumb li a, .breadcrumb li span {
-  padding: 0.5em 1.7em .5em 1.3em;
+  padding: 0.5em 1.7em .5em 0em;
 }
 
 h2.block-title {
