@@ -36,6 +36,7 @@
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  min-height: 70vh;
 }
 .l-header,
 .l-footer {
