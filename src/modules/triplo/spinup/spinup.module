@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ *
+ * Here we set up the URLs (menu entries) for the
+ * form examples. Note that most of the menu items
+ * have page callbacks and page arguments set, with
+ * page arguments set to be functions in external files.
+ */
+function spinup_menu() {
+
+  $items['spinup'] = array(
+    'title' => 'Form Tutorial',
+    'page callback' => 'backdrop_get_form',
+    'page arguments' => array('spinup_form'),
+    'access callback' => TRUE,
+    'description' => 'A set of ten tutorials',
+    'file' => 'spinup.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}

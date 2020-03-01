@@ -1,0 +1,5 @@
+type = module
+name = Spin Up
+description = Module to run bash script to spin up sites
+package = Triplo
+backdrop = 1.x
