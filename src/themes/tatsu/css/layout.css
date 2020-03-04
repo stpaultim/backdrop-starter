@@ -2,7 +2,8 @@
  * @file
  * Component Layout CSS and some Page layout overrides
  */
-.layout-flexible-content  {
+.layout-flexible-content,
+.layout--moscone-flipped {
   min-height: 100vh;
   padding-bottom: 200px;
   position: relative;
