@@ -9,6 +9,7 @@
 nav.tabs {
   position: relative;
   padding: 0.75em 0.5em 0;
+  margin-top: 20px;
 }
 
 nav.tabs:before {
