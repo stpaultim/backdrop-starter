@@ -21,6 +21,7 @@
 }
 .header-identity-wrapper strong {
   font-weight: inherit;
+  margin: 33px 0;
 }
 
 @media (min-width: 48em) {
@@ -166,7 +167,7 @@
 @media (min-width: 48em) {
   .header-menu a {
     /* Attempt at lining up baseline of site name and header menu */
-    padding-top: 1.9375rem;
+    padding-top: 2.4rem;
     padding-bottom: 1.0625rem;
     line-height: 1.25rem;
   }
@@ -235,6 +236,7 @@
 .header-identity-wrapper strong{
   font-size: 30px;
   font-weight: bold;
+  float: left;
 }
 
 .block-system-header .block-content .header-menu {
@@ -289,11 +291,12 @@
   }
   .header-logo-wrapper {
     display: block;
-    float: none;
+    float: left;
   }
   .navbar .navbar-toggler {
+    background: white;
     padding: 0px;
-    margin: 0px;
+    margin-top: 22px;
   }
   .hero-layouts .container.container-fluid.row {
     display: block;
@@ -302,5 +305,10 @@
   .navbar-collapse ul li{
     width: 100%;
     text-align: left;
+  }
+}
+@media (max-width: 470px) {
+  .header-identity-wrapper strong{
+    font-size: 24px;
   }
 }
