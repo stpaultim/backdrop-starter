@@ -307,8 +307,8 @@
     text-align: left;
   }
 }
-@media (max-width: 470px) {
+@media (max-width: 550px) {
   .header-identity-wrapper strong{
-    font-size: 24px;
+    font-size: 26px;
   }
 }
