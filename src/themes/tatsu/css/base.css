@@ -246,7 +246,7 @@ label {
 
 .l-page-title,
 .block:first-of-type {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 footer .block:first-of-type,
@@ -282,4 +282,10 @@ h2.block-title {
 
 .form-text {
   display: initial;
+}
+
+.submitted-by{
+  padding-bottom: 15px;
+  display: block;
+  font-weight: bold;
 }
