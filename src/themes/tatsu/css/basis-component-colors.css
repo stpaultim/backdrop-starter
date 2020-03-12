@@ -106,9 +106,6 @@ ul.action-links a:after {
 .breadcrumb li:first-child {
   padding-left: 0;
 }
-.breadcrumb li:after {
-  border: 0.0625rem solid #20252e;
-}
 
 /*  components/caption.css  */
 
