@@ -837,6 +837,17 @@ ul.action-links a {
   font-size: 1em;
 }
 
+#views-bootstrap-accordion-1{
+  width: 100%;
+}
+#views-bootstrap-accordion-1 .panel-heading{
+  border-bottom: 1px solid gainsboro;
+}
+.panel-title a{
+  padding: 10px 0;
+}
+
+
 @media (min-width: 25em) {
   .block-hero {
     padding: 2rem 3rem 3rem;
