@@ -1,0 +1,4 @@
+.breadcrumb li:after {
+  border: 0.0625rem solid #20252e;
+  border-width: 0.125rem 0.125rem 0 0;
+}
