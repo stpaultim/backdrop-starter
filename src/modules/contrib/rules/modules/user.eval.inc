@@ -66,7 +66,7 @@ function rules_action_user_remove_role($account, $roles) {
       // If the user has this role, remove it.
       if (in_array($role_name, $account->roles)) {
         $key = array_search($role_name, $roles);
-        backdrop_set_message("trying to remove role");
+        backdrop_set_message("trying to remove role" . $role_name . "key - " . $key);
         unset($account->roles[$key]);
       }
     }
