@@ -12,8 +12,3 @@ files[] = includes/rules_scheduler.handler.inc
 files[] = includes/rules_scheduler.views_default.inc
 files[] = includes/rules_scheduler.views.inc
 files[] = includes/rules_scheduler_views_filter.inc
-
-; Added by Backdrop CMS packaging script on 2020-01-07
-project = rules
-version = 1.x-2.1.4
-timestamp = 1578409896
