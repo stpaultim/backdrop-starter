@@ -60,7 +60,7 @@ function rules_action_user_add_role($account, $roles) {
 function rules_action_user_remove_role($account, $roles) {
   if ($account->uid || !empty($account->is_new)) {
     foreach ($roles as $role_name) {
-      echo $role_name;
+      backdrop_set_message("role name = " . $role_name);
       backdrop_set_message("checked for role");
       // If the user has this role, remove it.
       if (isset($account->roles[$role_name])) {
