@@ -63,7 +63,7 @@ function rules_action_user_remove_role($account, $roles) {
       backdrop_set_message("role name = " . $role_name);
       backdrop_set_message("checked for role");
       // If the user has this role, remove it.
-      if (isset($account->roles[$role_name])) {
+      if (in_array($role_name, $account->roles)) {
         backdrop_set_message("trying to remove role");
         unset($account->roles[$role_name]);
       }
