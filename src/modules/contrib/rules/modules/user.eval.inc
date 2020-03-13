@@ -59,10 +59,12 @@ function rules_action_user_add_role($account, $roles) {
  */
 function rules_action_user_remove_role($account, $roles) {
   if ($account->uid || !empty($account->is_new)) {
-    foreach ($roles as $role) {
+    foreach ($roles as $role_name) {
+      echo $role_name;
+      backdrop_set_message("Trying to remove role");
       // If the user has this role, remove it.
-      if (isset($account->roles[$role])) {
-        unset($account->roles[$role]);
+      if (isset($account->roles[$role_name])) {
+        unset($account->roles[$role_name]);
       }
     }
     if (!empty($account->is_new) && $account->uid) {
