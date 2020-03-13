@@ -7,8 +7,3 @@ type = module
 
 
 
-
-; Added by Backdrop CMS packaging script on 2020-01-07
-project = rules
-version = 1.x-2.1.4
-timestamp = 1578409896
