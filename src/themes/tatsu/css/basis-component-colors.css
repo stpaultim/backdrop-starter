@@ -55,11 +55,11 @@ ul.secondary li a {
   color: #ff0000;
 }
 
-.form-item .description,
+/*.form-item .description,
 .password-strength,
 .password-match {
   border-left: 0.25em solid #bbbbbb;
-}
+}*/
 
 .field-suffix .machine-name-value {
   border: 0.0625rem solid #dee2ea;
