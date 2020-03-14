@@ -263,7 +263,6 @@ header .block:first-of-type {
   padding: 0rem 1rem;
   margin-top: 0;
 }
-
 .breadcrumb li:after {
   border-color: grey;
   width: .7em;

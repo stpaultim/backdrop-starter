@@ -38,7 +38,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  right: 0; /* LTR */
+  right: 0px; /* LTR */
   width: 2em;
   height: 2em;
   border: 0.0625rem solid #20252e;
