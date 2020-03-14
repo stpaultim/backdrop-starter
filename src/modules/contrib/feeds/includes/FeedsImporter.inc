@@ -79,6 +79,7 @@ class FeedsImporter extends FeedsConfigurable {
   public function save() {
     $save = new stdClass();
     $save->id = $this->id;
+    $save->disabled = $this->disabled;
     $save->config = $this->getConfig();
 
     if ($config = config_get('feeds.feeds_importer.' . $this->id, 'config')) {
@@ -86,7 +87,7 @@ class FeedsImporter extends FeedsConfigurable {
       // rebuilding menus when creating a new importer since it will default
       // to the standalone page.
       if ($config['content_type'] != $save->config['content_type']) {
-        config_set('feeds.settings', 'menu_rebuild_needed', TRUE);
+        state_set('menu_rebuild_needed', TRUE);
       }
     }
 
@@ -117,7 +118,7 @@ class FeedsImporter extends FeedsConfigurable {
    */
   public function delete() {
     config('feeds.feeds_importer.' . $this->id)->delete();
-    
+
     feeds_reschedule($this->id);
   }
 
@@ -227,7 +228,7 @@ class FeedsImporter extends FeedsConfigurable {
       '#options' => array('' => t('Use standalone form')) + $node_types,
       '#default_value' => $config['content_type'],
     );
-    $cron_required =  ' ' . l(t('Requires cron to be configured.'), 'http://drupal.org/cron', array('attributes' => array('target' => '_new')));
+    $cron_required =  ' ' . l(t('Requires cron to be configured.'), 'https://backdropcms.org/user-guide/setting-cron', array('attributes' => array('target' => '_new')));
     $period = backdrop_map_assoc(array(900, 1800, 3600, 10800, 21600, 43200, 86400, 259200, 604800, 2419200), 'format_interval');
     foreach ($period as &$p) {
       $p = t('Every !p', array('!p' => $p));
@@ -254,6 +255,10 @@ class FeedsImporter extends FeedsConfigurable {
       '#title' => t('Process in background'),
       '#description' => t('For very large imports. If checked, import and delete tasks started from the web UI will be handled by a cron task in the background rather than by the browser. This does not affect periodic imports, they are handled by a cron task in any case.') . $cron_required,
       '#default_value' => $config['process_in_background'],
+    );
+    $form['disabled'] = array(
+      '#type' => 'hidden',
+      '#value' => isset($config['disabled']) ? $config['disabled'] : FALSE,
     );
     return $form;
   }
