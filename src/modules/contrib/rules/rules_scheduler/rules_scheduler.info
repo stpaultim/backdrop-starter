@@ -13,7 +13,7 @@ files[] = includes/rules_scheduler.views_default.inc
 files[] = includes/rules_scheduler.views.inc
 files[] = includes/rules_scheduler_views_filter.inc
 
-; Added by Backdrop CMS packaging script on 2020-01-07
+; Added by Backdrop CMS packaging script on 2020-03-13
 project = rules
-version = 1.x-2.1.4
-timestamp = 1578409896
+version = 1.x-2.1.5
+timestamp = 1584095243
