@@ -42,6 +42,7 @@ ckeditor_stylesheets[] = css/component/caption.css
 ; Remove unwanted core CSS
 stylesheets[all][] = system.theme.css
 stylesheets[all][] = menu-dropdown.theme.css
+stylesheets[all][] = css/tatsu.theme.css
 
 scripts[] = js/script.js
 scripts[] = js/bootstrap.bundle.min.js
