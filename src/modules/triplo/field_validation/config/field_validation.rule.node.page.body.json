@@ -1,0 +1,12 @@
+{
+    "_config_name": "field_validation.rule.node.page.body",
+    "module": "field_validation",
+    "storage": "default",
+    "name": "user",
+    "disabled": false,
+    "config": {
+        "title": {
+            "value": "[user:name] | [site:name]"
+        }
+    }
+}
