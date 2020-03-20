@@ -32,7 +32,7 @@ class DashboardTriploNewsBlock extends Block {
    * {@inheritdoc}
    */
   public function getContent() {
-    $feed = backdrop_http_request('http://sites.triplo.co/data/notifications');
+    $feed = backdrop_http_request('https://simplo.sites/data/notifications');
     $links = array();
     if ($feed->code === '200') {
       $news = json_decode($feed->data);
