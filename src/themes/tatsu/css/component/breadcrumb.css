@@ -41,7 +41,7 @@
   right: 0px; /* LTR */
   width: 2em;
   height: 2em;
-  border: 0.0625rem solid #20252e;
+  border: 0.0625rem solid white;
   border-width: 0.125rem 0.125rem 0 0;
   -webkit-transform:
     translate(0, -50%)
