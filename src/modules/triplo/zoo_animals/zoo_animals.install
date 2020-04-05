@@ -1,6 +1,39 @@
 <?php
 
   function zoo_animals_install() {
+
+    // Create a vocabulary and some terms
+
+    $vocabulary = new TaxonomyVocabulary(array(
+      'name' => 'Class',
+      'description' => '',
+      'machine_name' => 'animal_class',
+    ));
+    taxonomy_vocabulary_save($vocabulary);
+
+    $term = entity_create('taxonomy_term', array(
+      'name' => 'Mammalia',
+      'description' => '',
+      'format' => 1,
+      'vocabulary' => 'animal_class',
+    ));
+    taxonomy_term_save($term);
+    $term = entity_create('taxonomy_term', array(
+      'name' => 'Reptilia',
+      'description' => '',
+      'format' => 1,
+      'vocabulary' => 'animal_class',
+    ));
+    taxonomy_term_save($term);
+    $term = entity_create('taxonomy_term', array(
+      'name' => 'Aves',
+      'description' => '',
+      'format' => 1,
+      'vocabulary' => 'animal_class',
+    ));
+    taxonomy_term_save($term);
+
+
     $type = array(
         'type' => 'animals',
         'name' => st('Animals'),
@@ -74,6 +107,45 @@
     );
     field_create_instance($instance);
 
+    $field = array(
+      'field_name' => 'field_animal_class',
+      'type' => 'taxonomy_term_reference',
+      // Set cardinality to unlimited for tagging.
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'settings' => array(
+        'allowed_values' => array(
+          array(
+            'vocabulary' => 'animal_class',
+            'parent' => 0,
+          ),
+        ),
+      ),
+    );
+    field_create_field($field);
+
+    $instance = array(
+      'field_name' => 'field_animal_class',
+      'entity_type' => 'node',
+      'label' => 'Class',
+      'bundle' => 'animals',
+      'description' => st('Enter a comma-separated list of words to describe your content.'),
+      'widget' => array(
+        'type' => 'taxonomy_autocomplete',
+        'weight' => -4,
+      ),
+      'display' => array(
+        'default' => array(
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 10,
+        ),
+        'teaser' => array(
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 10,
+        ),
+      ),
+    );
+    field_create_instance($instance);
+
     // Many of the following values will be defaulted, they're included here as an illustrative examples.
     // See https://api.backdropcms.org/api/function/field_create_instance/1
     $instance = array(
@@ -124,7 +196,9 @@
     );
     field_create_instance($instance);
 
-    // Make a post node.
+    // Create some sample nodes
+
+    // Make a animal node.
     $node = new Node();
 
     // Use the node type you need here, in this case 'post'.
@@ -147,6 +221,7 @@
     $file = file_save_data($image_object, 'public://', 'elephant.jpg', FILE_EXISTS_RENAME);
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '1';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -175,6 +250,7 @@
     $file = file_save_data($image_object, 'public://', 'Fox.jpg', FILE_EXISTS_RENAME);
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '1';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -203,6 +279,7 @@
     $file = file_save_data($image_object, 'public://', 'giraffe.jpeg', FILE_EXISTS_RENAME);
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '1';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -232,6 +309,7 @@
     $file = file_save_data($image_object, 'public://', 'Lion.jpg', FILE_EXISTS_RENAME);
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '1';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -254,6 +332,7 @@
     $module_path = backdrop_get_path('module', 'zoo_animals');
     $llama = file_get_contents($module_path . '/animals_txt/llama.txt');
     $node->body['und'][] = array('value' => $llama, 'format' => 'filtered_html');
+    $node->field_animal_class['und'][0]['tid'] = '1';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -284,6 +363,36 @@
     $file = file_save_data($image_object, 'public://', 'Panda.jpg', FILE_EXISTS_RENAME);
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '1';
+
+    // Save submit and save the node.
+    $node = node_submit($node);
+    node_save($node);
+
+    // Make a post node.
+    $node = new Node();
+
+    // Use the node type you need here, in this case 'post'.
+    $node->type = 'animals';
+    $node->title = 'Bald Eagle';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = 1;
+    $node->status = 1;
+    $node->promote = 1;
+    $node->comment = 0;
+
+    // Save your field data.
+    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $panda = file_get_contents($module_path . '/animals_txt/eagle.txt');
+    $node->body['und'][] = array('value' => $panda, 'format' => 'filtered_html');
+
+    $image_path = $module_path . '/images/eagle.jpg';
+    $image_object = file_get_contents($image_path);
+    $file = file_save_data($image_object, 'public://', 'eagle.jpg', FILE_EXISTS_RENAME);
+    $file->uid = 1;
+    $node->field_image['und'][0] = (array) $file;
+    $node->field_animal_class['und'][0]['tid'] = '3';
 
     // Save submit and save the node.
     $node = node_submit($node);
