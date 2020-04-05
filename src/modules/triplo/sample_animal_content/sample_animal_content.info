@@ -1,5 +1,5 @@
 type = module
-name = Zoo Animals
+name = Sample Animal Content
 description = Sample content - of the animal variety
 package = Triplo
 backdrop = 1.x

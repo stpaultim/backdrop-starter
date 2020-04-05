@@ -1,6 +1,6 @@
 <?php
 
-  function zoo_animals_install() {
+  function sample_animal_content_install() {
 
     // Create a vocabulary and some terms
 
@@ -137,12 +137,53 @@
         'default' => array(
           'type' => 'taxonomy_term_reference_link',
           'weight' => 10,
+          'label' => 'inline',
         ),
         'teaser' => array(
           'type' => 'taxonomy_term_reference_link',
           'weight' => 10,
+          'label' => 'inline',
         ),
       ),
+    );
+    field_create_instance($instance);
+
+    $field = array(
+      'field_name' => 'field_animals_link',
+      'type' => 'link_field',
+      'cardinality' => '1',
+    );
+    field_create_field($field);
+
+    $instance = array(
+      'field_name' => 'field_animals_link',
+      'entity_type' => 'node',
+      'label' => 'Link',
+      'bundle' => 'animals',
+      'description' => st('A link to the wikipedia page with more content.'),
+      'widget' => array(
+        'weight' => 0,
+        'type' => 'link_field',
+        'module' => 'link',
+        'active' => 0,
+        'settings' => [],
+      ),
+      'display' => array(
+        'default' => array(
+          'type' => 'link_default',
+          'weight' => 10,
+          'label' => 'inline',
+        ),
+        'teaser' => array(
+          'type' => 'link_default',
+          'weight' => 10,
+          'label' => 'inline',
+        ),
+      ),
+      'settings' => array(
+          'title' => 'none',
+          'title_value' => '',
+      )
     );
     field_create_instance($instance);
 
@@ -212,7 +253,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $elephant = file_get_contents($module_path . '/animals_txt/elephant.txt');
     $node->body['und'][] = array('value' => $elephant, 'format' => 'filtered_html');
 
@@ -222,6 +263,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Elephant';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -241,7 +283,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $fox = file_get_contents($module_path . '/animals_txt/fox.txt');
     $node->body['und'][] = array('value' => $fox, 'format' => 'filtered_html');
 
@@ -251,6 +293,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Fox';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -270,7 +313,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $giraffe = file_get_contents($module_path . '/animals_txt/giraffe.txt');
     $node->body['und'][] = array('value' => $giraffe, 'format' => 'filtered_html');
 
@@ -280,6 +323,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Giraffe';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -300,7 +344,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $lion = file_get_contents($module_path . '/animals_txt/lion.txt');
     $node->body['und'][] = array('value' => $lion, 'format' => 'filtered_html');
 
@@ -310,6 +354,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Lion';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -329,10 +374,11 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $llama = file_get_contents($module_path . '/animals_txt/llama.txt');
     $node->body['und'][] = array('value' => $llama, 'format' => 'filtered_html');
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Llama';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -354,7 +400,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $panda = file_get_contents($module_path . '/animals_txt/panda.txt');
     $node->body['und'][] = array('value' => $panda, 'format' => 'filtered_html');
 
@@ -364,6 +410,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '1';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Giant_panda';
 
     // Save submit and save the node.
     $node = node_submit($node);
@@ -383,7 +430,7 @@
     $node->comment = 0;
 
     // Save your field data.
-    $module_path = backdrop_get_path('module', 'zoo_animals');
+    $module_path = backdrop_get_path('module', 'sample_animal_content');
     $panda = file_get_contents($module_path . '/animals_txt/eagle.txt');
     $node->body['und'][] = array('value' => $panda, 'format' => 'filtered_html');
 
@@ -393,6 +440,7 @@
     $file->uid = 1;
     $node->field_image['und'][0] = (array) $file;
     $node->field_animal_class['und'][0]['tid'] = '3';
+    $node->field_animals_link['und'][0]['url'] = 'https://en.wikipedia.org/wiki/Eagle';
 
     // Save submit and save the node.
     $node = node_submit($node);
