@@ -1,13 +1,20 @@
+/**
+ * @file
+ * Behaviors for Devel.
+ */
+
 (function ($) {
 
 /**
  * Attaches double-click behavior to toggle full path of Krumo elements.
+ *
+ * @type {Backdrop~behavior}
  */
 Backdrop.behaviors.devel = {
   attach: function (context, settings) {
 
-    // Add hint to footnote
-    $('.krumo-footnote .krumo-call').before('<img style="vertical-align: middle;" title="Click to expand. Double-click to show path." src="' + Backdrop.settings.basePath + 'core/misc/help.png"/>');
+    // Add hint to footnote.
+    $('.krumo-footnote .krumo-call', context).once().before('<img style="vertical-align: middle;" title="Click to expand. Double-click to show path." src="' + Backdrop.settings.basePath + 'core/misc/help.png"/>');
 
     var krumo_name = [];
     var krumo_type = [];
@@ -21,7 +28,9 @@ Backdrop.behaviors.devel = {
       }
     }
 
-    $('.krumo-child > div:first-child', context).dblclick(
+    $('.krumo-child > div:first-child', context).once('krumo_path',
+    function() {
+      $('.krumo-child > div:first-child', context).dblclick(
       function(e) {
         if ($(this).find('> .krumo-php-path').length > 0) {
           // Remove path if shown.
@@ -58,9 +67,20 @@ Backdrop.behaviors.devel = {
           krumo_name = [];
           krumo_type = [];
         }
-      }
-    );
-  }
-};
+      });
+    });
 
-})(jQuery);
+    // Events
+    $('.krumo-element').once('krumo-events', function() {
+      $(this).click(function() {
+        krumo.toggle(this);
+      }).mouseover(function() {
+        krumo.over(this);
+      }).mouseout(function() {
+        krumo.out(this);
+      });
+    });  // End krumo-events .once.
+  }  // End attach.
+};  // End behaviors.devel.
+
+})(jQuery);  // End outer function.
