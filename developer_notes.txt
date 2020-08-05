@@ -1,0 +1,28 @@
+Developer notes for BackdropCMS starter kit:
+https://triplo.atlassian.net/browse/TRIP-214
+
+Problematic updates:
+
+* 
+*
+
+Patched modules:
+(keep copy of any applied patches in /modules/patches/)
+
+* 
+*
+
+Patched modules:
+(keep copy of any applied patches in /modules/patches/)
+
+* pelerine
+I submitted a PR to theme logo.
+https://github.com/backdrop-contrib/pelerine/pull/2 OR
+https://github.com/stpaultim/pelerine/commit/b0b9d5ffe9326ecf8ba59b7c5931b8ada22de70a
+
+Others:
+
+* 
+*
+
+
