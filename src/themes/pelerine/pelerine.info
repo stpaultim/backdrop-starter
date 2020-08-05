@@ -20,8 +20,8 @@ stylesheets[all][] = css/capes.css
 ckeditor_stylesheets[] = css/editor.css
 ckeditor_stylesheets[] = css/component/caption.css
 
-settings[bodyclass] = 'green-grey-dots'
-settings[image_url] = 'themes/pelerine/backgrounds/green-grey-dots.png'
+settings[bodyclass] = 'orange-circles'
+settings[image_url] = 'themes/pelerine/backgrounds/orange-circles.jpg'
 
 ; Added by Backdrop CMS packaging script on 2020-07-30
 project = pelerine

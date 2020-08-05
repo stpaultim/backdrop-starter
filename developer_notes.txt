@@ -20,6 +20,9 @@ I submitted a PR to theme logo.
 https://github.com/backdrop-contrib/pelerine/pull/2 OR
 https://github.com/stpaultim/pelerine/commit/b0b9d5ffe9326ecf8ba59b7c5931b8ada22de70a
 
+Also, changed default background
+https://github.com/stpaultim/pelerine/commit/60d97e3dfa1bf0b31fc1e8cc1bc834cff4f2a7bd
+
 Others:
 
 * 
