@@ -156,6 +156,7 @@ h6 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 .name-and-slogan {
   color: #fff;
@@ -179,6 +180,11 @@ h6 {
 }
 .name-and-slogan .site-slogan {
   font-size: 1.3em;
+}
+.block-content .logo img {
+  max-height: 120px;
+  max-width: 200px;
+  padding-left: 10px;
 }
 
 .header-menu {
@@ -315,6 +321,16 @@ img.align-right {
   img.align-right {
     float: none;
     margin: .5em 0;
+  }
+  .block-system-header .block-content {
+    align-content: center;
+  }
+  .block-content .logo,
+  .name-and-slogan,
+  .header-menu {
+    margin: 0px auto 10px;
+    min-width: 250px;
+    text-align: center;
   }
 }
 @media screen and (min-width: 34em) {
