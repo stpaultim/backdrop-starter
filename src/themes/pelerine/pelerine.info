@@ -20,10 +20,5 @@ stylesheets[all][] = css/capes.css
 ckeditor_stylesheets[] = css/editor.css
 ckeditor_stylesheets[] = css/component/caption.css
 
-settings[bodyclass] = 'orange-circles'
-settings[image_url] = 'themes/pelerine/backgrounds/orange-circles.jpg'
-
-; Added by Backdrop CMS packaging script on 2020-07-30
-project = pelerine
-version = 1.x-1.0.3
-timestamp = 1596111013
+settings[bodyclass] = 'green-stripes'
+settings[image_url] = 'themes/pelerine/backgrounds/green-stripes.jpg'
