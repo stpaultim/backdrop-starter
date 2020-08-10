@@ -92,9 +92,6 @@ function _pelerine_css_class($form, &$form_state) {
   if ($form_state['values']['use_custom_css']) {
     $custom_css = strip_tags($form_state['values']['custom_css']);
     file_unmanaged_save_data($custom_css, $filepath, FILE_EXISTS_REPLACE);
-  }
-  else {
-    $form_state['values']['custom_css'] = '';
-    file_unmanaged_delete($filepath);
+    $form_state['values']['custom_css'] = $custom_css;
   }
 }

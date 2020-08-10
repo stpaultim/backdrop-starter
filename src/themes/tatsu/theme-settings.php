@@ -105,20 +105,18 @@ function tatsu_form_system_theme_settings_alter(&$form, &$form_state) {
  * Custom validation function to set a form item value.
  */
 function _tatsu_css_class($form, &$form_state) {
-	// Create a css body class from image.
-	if (!empty($form_state['values']['image_url'])) {
-		$options                           = $form_state['storage']['options'];
-		$key                               = $form_state['values']['image_url'];
-		$form_state['values']['bodyclass'] = $options[$key];
-	}
-	// Additionally save css file to disk.
-	$theme_name = $form_state['values']['theme'];
-	$filepath   = backdrop_realpath("public://{$theme_name}_custom.css");
-	if ($form_state['values']['use_custom_css']) {
-		$custom_css = strip_tags($form_state['values']['custom_css']);
-		file_unmanaged_save_data($custom_css, $filepath, FILE_EXISTS_REPLACE);
-	} else {
-		$form_state['values']['custom_css'] = '';
-		file_unmanaged_delete($filepath);
-	}
+  // Create a css body class from image.
+  if (!empty($form_state['values']['image_url'])) {
+    $options = $form_state['storage']['options'];
+    $key = $form_state['values']['image_url'];
+    $form_state['values']['bodyclass'] = $options[$key];
+  }
+  // Additionally save css file to disk.
+  $theme_name = $form_state['values']['theme'];
+  $filepath = backdrop_realpath("public://{$theme_name}_custom.css");
+  if ($form_state['values']['use_custom_css']) {
+    $custom_css = strip_tags($form_state['values']['custom_css']);
+    file_unmanaged_save_data($custom_css, $filepath, FILE_EXISTS_REPLACE);
+    $form_state['values']['custom_css'] = $custom_css;
+  }
 }
