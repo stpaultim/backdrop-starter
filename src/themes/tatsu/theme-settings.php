@@ -92,7 +92,7 @@ function tatsu_form_system_theme_settings_alter(&$form, &$form_state) {
   $form['advanced'] = array(
     '#type' => 'fieldset',
     '#title' => t('Advanced Settings'),
-    '#collapsible' => FALSE,
+    '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
 
