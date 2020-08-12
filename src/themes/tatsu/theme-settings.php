@@ -75,6 +75,10 @@ if (module_exists('color')) {
 
 function tatsu_form_system_theme_settings_alter(&$form, &$form_state) {
   $theme_name = $form['theme']['#value'];
+  $tatsu_path = backdrop_get_path('theme', 'tatsu');
+
+  backdrop_add_css($tatsu_path . '/css/tatsu-admin.css');
+  backdrop_add_js($tatsu_path . '/js/script.js');
 
   // @see _tatsu_css_class()
   $form_state['storage']['options'] = $options;
@@ -89,13 +93,20 @@ function tatsu_form_system_theme_settings_alter(&$form, &$form_state) {
   $form['#validate'][] = '_tatsu_css_class';
 
   // Custom css in a textarea.
+
+  $form['advanced'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Advanced Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
   
-  $form['use_custom_css'] = array(
+  $form['advanced']['use_custom_css'] = array(
     '#type' => 'checkbox',
     '#title' => t('Add custom CSS'),
     '#default_value' => theme_get_setting('use_custom_css', $theme_name),
   );
-  $form['css'] = array(
+  $form['advanced']['css'] = array(
     '#type' => 'fieldset',
     '#title' => t('Custom CSS'),
     '#states' => array(
@@ -108,11 +119,11 @@ function tatsu_form_system_theme_settings_alter(&$form, &$form_state) {
   $picker = '<div id="html5colorpicker"><input type="color" value="#ffffff" /><span></span></div>';
   $help = t('Pick a color to put it in your code at cursor position.');
   $description = '<div class="description">' . $help . '</div>';
-  $form['css']['color_widget'] = array(
+  $form['advanced']['css']['color_widget'] = array(
     '#type' => 'markup',
     '#markup' => '<div class="widget">' . $picker . $description . '</div>',
   );
-  $form['css']['custom_css'] = array(
+  $form['advanced']['css']['custom_css'] = array(
     '#type' => 'textarea',
     '#title' => t('Your custom CSS rules'),
     '#description' => t('Note that you can not preview these rules here.'),
