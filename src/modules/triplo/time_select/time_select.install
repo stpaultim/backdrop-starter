@@ -1,0 +1,25 @@
+<?php
+
+  function time_select_field_schema($field) {
+    // include poutine_maker.toppings.inc for poutine_maker_toppings()
+    module_load_include('inc', 'poutine_maker', 'poutine_maker.toppings');
+
+    $columns = array(
+      'name' => array('type' => 'varchar', 'length' => 255, 'not null' => TRUE),
+      'vegetarian' => array('type' => 'int', 'length' => 1, 'not null' => FALSE),
+    );
+
+    // poutine_maker_toppings() returns all the toppings;
+    // make a column for each topping
+    foreach (poutine_maker_toppings() as $topping_machine=>$topping) {
+      $columns[$topping_machine] = array(
+        'type' => 'int',
+        'length' => 1,
+        'not null' => FALSE,
+      );
+    }
+    return array(
+      'columns' => $columns,
+      'indexes' => array(),
+    );
+  }
