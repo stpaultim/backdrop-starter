@@ -1,35 +1,20 @@
 <?php
 
-  function simplo_events_menu() {
-    $items['examples/events'] = array(
-      'page callback' => 'simplo_events_page',
-      'access arguments' => array('access content'),
-    );
-    return $items;
+  function simplo_events_node_presave($node) {
+    if ($node->type == 'simplo_session') {
+
+      // release previous time slot
+      $tid = $node->original->field_time_slot['und'][0]['target_id'];
+      $time_slot = node_load($tid);
+      $time_slot->field_slot_taken['und'][0] =  FALSE;
+      $time_slot->save();
+
+      // claim open time slot
+      $tid = $node->field_time_slot['und'][0]['target_id'];
+      $time_slot = node_load($tid);
+      $time_slot->field_slot_taken['und'][0] = TRUE;
+      $time_slot->save();
+    }
   }
 
-  function simplo_events_page() {
-    // We'll start building a renderable array that will be our page.
-    // For now we just declare the array.
-    $renderable_array = array();
-    // We query the database and find all of the nodes for the type we defined.
-    $sql = 'SELECT nid FROM {node} n WHERE n.type = :type AND n.status = :status';
-    $result = db_query($sql,
-      array(
-        ':type' => 'simplo_session',
-        ':status' => 1,
-      )
-    );
-    $renderable_array['explanation'] = array(
-      '#markup' => t("Node Example nodes you've created will be displayed here. Note that the color fields will be displayed differently in this list, than if you view the node normally. Click on the node title to see the difference. This is a result of using our 'example_node_list' node view type."),
-    );
-    // Loop through each of our node_example nodes and instruct node_view
-    // to use our "example_node_list" view.
-    // http://api.DOCUMENTATION_PENDING/api/function/node_load/7
-    // http://api.DOCUMENTATION_PENDING/api/function/node_view/7
-    foreach ($result as $row) {
-      $node = node_load($row->nid);
-      $renderable_array['node_list'][] = node_view($node, 'simplo_events_list');
-    }
-    return $renderable_array;
-  }
+
