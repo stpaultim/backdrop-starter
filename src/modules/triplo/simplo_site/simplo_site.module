@@ -1,0 +1,24 @@
+<?php
+
+  /**
+   *
+   * hook_form_alter()
+   */
+
+  function simplo_site_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'sites_node_form'){
+      $form['#validate'][] = 'tatsu_custom_validate';
+    }
+  }
+
+  /**
+   *
+   * Custom sites node form validation
+   */
+
+  function simplo_site_custom_validate(&$form, &$form_state) {
+    $site_name = $form_state['input']['field_sites_site_name']['und'][0]['value'];
+    if ($site_name !== trim($site_name) || strpos($site_name, ' ') !== false) {
+      form_set_error('field_sites_site_name',t('Spaces are not allowed in site name, Please check!') );
+    }
+  }
