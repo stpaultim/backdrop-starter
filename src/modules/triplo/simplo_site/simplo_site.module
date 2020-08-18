@@ -18,7 +18,8 @@
 
   function simplo_site_custom_validate(&$form, &$form_state) {
     $site_name = $form_state['input']['field_sites_site_name']['und'][0]['value'];
-    if (preg_match('/^[a-z0-9\-]{1,30}$/', $site_name) !== false) {
+    if (preg_match('/^[a-z0-9\-]{1,30}$/', $site_name) == false) {
       form_set_error('field_sites_site_name',t('You may only use lowercase letters, numbers and dashes in your site name. No spaces allowed.!') );
     }
   }
+
