@@ -1,0 +1,42 @@
+<?php
+
+  /**
+   * Implements hook_install().
+   */
+  function simplo_events_install() {
+    $type = array(
+      'type' => 'simplo_session',
+      'name' => t('Simplo session'),
+      'base' => 'node_content',
+      'description' => t('This is a simple session content type.'),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+      'is_new' => TRUE,
+      'settings' => array(
+        'promote_enabled' => FALSE,
+      ),
+    );
+
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+
+    $type = array(
+      'type' => 'simplo_time_slot',
+      'name' => t('Simplo time slot'),
+      'base' => 'node_content',
+      'description' => t('Use this content type for time slots.'),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+      'is_new' => TRUE,
+      'settings' => array(
+        'promote_enabled' => FALSE,
+      ),
+    );
+
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
