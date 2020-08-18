@@ -7,7 +7,7 @@
 
   function simplo_site_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'sites_node_form'){
-      $form['#validate'][] = 'tatsu_custom_validate';
+      $form['#validate'][] = 'simplo_site_custom_validate';
     }
   }
 
