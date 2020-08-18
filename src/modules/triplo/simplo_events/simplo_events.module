@@ -2,19 +2,35 @@
 
   function simplo_events_node_presave($node) {
     if ($node->type == 'simplo_session') {
+      backdrop_set_message($message = "This is the Simplo Events Module", $type = 'status', $repeat = TRUE);
 
       // release previous time slot
-      $tid = $node->original->field_time_slot['und'][0]['target_id'];
-      $time_slot = node_load($tid);
-      $time_slot->field_slot_taken['und'][0] =  FALSE;
-      $time_slot->save();
+      if (isset($node->original->field_time_slot['und'][0]['nid'])) {
+        backdrop_set_message($message = "release previous time slot.", $type = 'status', $repeat = TRUE);
+        $old_time = $node->original->field_time_slot['und'][0]['nid'];
+        echo "tim";
+        echo $old_time;
+        $time_slot = node_load($old_time);
+        $time_slot->field_slot_taken['und'][0]['value'] = 0;
+        $time_slot->save();
+      }
 
       // claim open time slot
-      $tid = $node->field_time_slot['und'][0]['target_id'];
-      $time_slot = node_load($tid);
-      $time_slot->field_slot_taken['und'][0] = TRUE;
-      $time_slot->save();
+      if (isset($node->field_time_slot['und'][0]['nid'])) {
+        backdrop_set_message($message = "claim open time slot.  ", $type = 'status', $repeat = TRUE);
+        $new_time = $node->field_time_slot['und'][0]['nid'];
+        $time_slot = node_load($new_time);
+        $time_slot->field_slot_taken['und'][0]['value'] = 1;
+        $time_slot->save();
+        $new_time_slot = node_load($new_time);
+        $new_title = $new_time_slot->title;
+        $node->field_scheduled_time['und'][0]['value'] = $new_title;
+      }
     }
   }
+
+
+
+
 
 
