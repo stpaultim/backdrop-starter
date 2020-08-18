@@ -1,0 +1,5 @@
+type = module
+name = Simplo Events
+description = Scheduling sessions
+package = Simplo
+backdrop = 1.x
