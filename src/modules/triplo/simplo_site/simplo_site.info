@@ -1,0 +1,5 @@
+type = module
+name = Simplo Site
+description = This module is for any code specific to the simlplo site process on simple.site
+package = Simplo
+backdrop = 1.x
