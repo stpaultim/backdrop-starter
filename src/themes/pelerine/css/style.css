@@ -151,11 +151,24 @@ h6 {
 .l-header .block-system-header {
   margin: 2em 0 1em;
 }
+<<<<<<< HEAD
 
 .block-system-header .block-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+=======
+.block-system-header .block-content {
+  text-align: center;
+}
+.block-system-header .block-content > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 .9375rem 10px;
+}
+.block-system-header .logo {
+  max-width: 400px;
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
 }
 .name-and-slogan {
   color: #fff;
@@ -170,6 +183,10 @@ h6 {
 }
 .name-and-slogan .site-name {
   font-size: 1.7em;
+<<<<<<< HEAD
+=======
+  line-height: 1.8em;
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
 }
 .name-and-slogan .site-name a {
   color: #444;
@@ -302,6 +319,15 @@ img.align-right {
   color: #000;
   background-color: #f7f7f7;
 }
+<<<<<<< HEAD
+=======
+.l-header .block-search-form {
+  position: relative;
+  z-index: 1;
+  float: right;
+  margin-right: .9375rem;
+}
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
 .l-footer {
   padding: 2em 0;
   background: #484848;
@@ -342,11 +368,33 @@ img.align-right {
   }
 }
 @media screen and (min-width: 1101px) {
+<<<<<<< HEAD
+=======
+  .block-system-header .block-content {
+    text-align: left;
+  }
+  .header-menu {
+    float: right;
+    margin-right: 0;
+  }
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
   h1 {
     font-size: 2.1em;
   }
   h2 {
     font-size: 1.8em;
   }
+<<<<<<< HEAD
 
 }
+=======
+}
+@media screen and (min-width: 1201px) {
+  .block-system-header .block-content > * {
+    margin-left: 0;
+  }
+  .l-header .block-search-form {
+    margin-right: 0;
+  }
+}
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814

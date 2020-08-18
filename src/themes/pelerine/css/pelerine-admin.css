@@ -29,3 +29,27 @@
   background-color: #fff;
   padding: 25px 20px 40px;
 }
+<<<<<<< HEAD
+=======
+#edit-css .fieldset-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+#edit-css .widget {
+  max-width: 200px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+#edit-css .widget input {
+  width: 80px;
+  height: 30px;
+}
+#edit-css .widget span {
+  padding: 0 .5em;
+  color: #777;
+}
+#edit-css .form-type-textarea {
+  flex-grow: 1;
+  margin-top: 10px;
+}
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814

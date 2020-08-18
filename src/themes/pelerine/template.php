@@ -11,17 +11,39 @@
  * @see page.tpl.php
  */
 function pelerine_preprocess_page(&$variables) {
+<<<<<<< HEAD
+=======
+  global $base_path;
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
   // Add open sans webfont.
   backdrop_add_library('system', 'opensans', TRUE);
   // Add image url and css class.
   $image_url = theme_get_setting('image_url');
   if (!empty($image_url)) {
+<<<<<<< HEAD
     global $base_path;
+=======
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
     $img = $base_path . $image_url;
     $css = "body {background-image: url($img);}";
     backdrop_add_css($css, 'inline');
     $variables['classes'][] = theme_get_setting('bodyclass');
   }
+<<<<<<< HEAD
+=======
+  // Attach custom css file if it exists.
+  if (theme_get_setting('use_custom_css')) {
+    global $theme, $base_url;
+    $rel_path = config_get('system.core', 'file_public_path') . '/' . $theme . '_custom.css';
+    if (file_exists($rel_path)) {
+      backdrop_add_css($base_url . $base_path . $rel_path, array(
+        'every_page' => TRUE,
+        'preprocess' => FALSE,
+        'group' => CSS_THEME,
+      ));
+    }
+  }
+>>>>>>> 252e6c106b16aa2ddfebfb5f3a552d885c87e814
 }
 
 /**
