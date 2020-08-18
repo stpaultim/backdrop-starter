@@ -1,12 +1,15 @@
 # Tatsu
-A flexible sub theme of BASIS that allows a site editor or manager to make
-maximum color/visual customizations through the user interface. 
+A flexible theme based on BASIS that allows a site editor or manager to make
+maximum color/visual customizations through the user interface. Version 1.x-1.x
+was a sub-theme of Basis, we removed this dependency in 1.x-2.x since we have made
+some pretty significant changes to Tatsu. 
 
 We think that there is demand for this kind of theme in the contrib space 
 and welcome both feature and design suggestions. Let's make this a community
 project. 
 
-Tatsu currently includes Bootstrap css and js files. 
+Tatsu currently includes Bootstrap css and js files. Version 1.x-2.x also includes
+a UI for supplemental CSS changes.
 
 NOTE: We just created a 1.x-2.x branch for new development. If 1.x-1.x is helpful
 as is, we'll try to keep it stabile - although, it is still pretty rough.
@@ -35,8 +38,12 @@ Other tips
 - [Configurable Block Style](https://backdropcms.org/project/configurable_block_style) for custom 
   block styling through the user interface.
   
-## VERSION 1.2 CHANGES
+## VERSION 1.x-2.x CHANGES
 
+- Removed dependency on Basis. 
+  https://github.com/backdrop-contrib/tatsu/issues/50
+- Adding UI for adding custom CSS rules
+  https://github.com/backdrop-contrib/tatsu/issues/54
 - Removed color module support for special hero blocks which are
   no longer needed.
 - Adding support for Config Recipes
@@ -73,6 +80,10 @@ https://github.com/backdrop-contrib/config_recipes
   helped with Basis.
   
 - Work on Tatsu is support by Triplo LLC (https://www.triplo.co)
+
+- Thanks to everyone that has worked on the Zen Theme for Drupal. 
+  We have been inspired by your work and borrowed as heavily as 
+  possible from your ideas and documentation.
 
 ## LICENSE
 
