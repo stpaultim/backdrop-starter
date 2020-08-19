@@ -1,5 +1,0 @@
-type = module
-name = Time Select
-description = Pick Time Slot for Session
-package = Triplo
-backdrop = 1.x
