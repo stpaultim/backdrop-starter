@@ -21,7 +21,7 @@
         $time_slot->field_slot_taken['und'][0]['value'] = 1;
         $time_slot->save();
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
-        backdrop_set_message($message = $old_time . "  " . $node->field_scheduled_time['und'][0]['nid'], $type = 'status', $repeat = TRUE);
+        backdrop_set_message($message = $old_time . "  " . $new_time, $type = 'status', $repeat = TRUE);
         if (isset($node->field_scheduled_time['und'][0]['nid']) && $old_time != $node->field_scheduled_time['und'][0]['nid']) {
           $node->field_scheduled_time['und'][0]['nid'] = $new_time;
           backdrop_set_message($message = "Updating scheduled time", $type = 'status', $repeat = TRUE);
