@@ -8,9 +8,9 @@
       if (isset($node->original->field_time_slot['und'][0]['nid'])) {
         backdrop_set_message($message = "release previous time slot.", $type = 'status', $repeat = TRUE);
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
-
         $time_slot = node_load($old_time);
         $time_slot->field_slot_taken['und'][0]['value'] = 0;
+        backdrop_set_message($message = $time_slot, $type = 'status', $repeat = TRUE);
         $time_slot->save();
       }
 
