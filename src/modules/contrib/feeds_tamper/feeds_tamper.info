@@ -1,0 +1,6 @@
+name = Feeds Tamper
+description = Modify feeds data before it gets saved.
+package = Feeds
+dependencies[] = feeds
+backdrop = 1.x
+type = module
