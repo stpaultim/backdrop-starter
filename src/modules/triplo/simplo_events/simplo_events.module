@@ -10,7 +10,7 @@
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
         $time_slot = node_load($old_time);
         $time_slot->field_slot_taken['und'][0]['value'] = 0;
-        backdrop_set_message($message = $time_slot, $type = 'status', $repeat = TRUE);
+        backdrop_set_message($message = "Time slot status = "$time_slot, $type = 'status', $repeat = TRUE);
         $time_slot->save();
       }
 
@@ -22,8 +22,6 @@
         $time_slot->field_slot_taken['und'][0]['value'] = 1;
         $time_slot->save();
 
-/*        $new_time_slot = node_load($new_time);
-        $new_title = $new_time_slot->title;*/
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
         if ($old_time != $node->field_scheduled_time['und'][0]['nid']) {
           $node->field_scheduled_time['und'][0]['nid'] = $new_time;
