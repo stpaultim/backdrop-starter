@@ -8,8 +8,7 @@
       if (isset($node->original->field_time_slot['und'][0]['nid'])) {
         backdrop_set_message($message = "release previous time slot.", $type = 'status', $repeat = TRUE);
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
-        echo "tim";
-        echo $old_time;
+
         $time_slot = node_load($old_time);
         $time_slot->field_slot_taken['und'][0]['value'] = 0;
         $time_slot->save();
@@ -25,8 +24,10 @@
 
 /*        $new_time_slot = node_load($new_time);
         $new_title = $new_time_slot->title;*/
-
-        $node->field_scheduled_time['und'][0]['nid'] = $new_time;
+        $old_time = $node->original->field_time_slot['und'][0]['nid'];
+        if ($old_time != $node->field_scheduled_time['und'][0]['nid']) {
+          $node->field_scheduled_time['und'][0]['nid'] = $new_time;
+        }
       }
     }
   }
