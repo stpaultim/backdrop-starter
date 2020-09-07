@@ -27,8 +27,36 @@
 //        backdrop_set_message($message = "Updating scheduled time", $type = 'status', $repeat = TRUE);
         $node->field_scheduled_time['und'][0]['nid'] = $new_time;
       }
+
+      $utcTime = $node->field_date_time['und']['0']['value'];
+      backdrop_set_message('Hi there');
+      $mplsTime = date('D m/j g:i a', strtotime('-5 hours', strtotime($utcTime)));
+      $sydneyTime = date('D m/j g:i a', strtotime('+15 hours', strtotime($mplsTime)));
+      $sfTime = date('D m/j g:i a', strtotime('-2 hours', strtotime($mplsTime)));
+      $newyorkTime = date('D m/j g:i a', strtotime('+1 hours', strtotime($mplsTime)));
+      $berlinTime = date('D m/j g:i a', strtotime('+7 hours', strtotime($mplsTime)));
+      $londonTime = date('D m/j g:i a', strtotime('+6 hours', strtotime($mplsTime)));
+
+      $timedisplay = '<ul>';
+      $timedisplay = $timedisplay . '<li>' . 'San Francisco <br>' . $sfTime . '</li>';
+      $timedisplay = $timedisplay . '<li>' . 'Minneapolis <br>' . $mplsTime  . '</li>';
+      $timedisplay = $timedisplay . '<li>' . 'New York <br>' . $newyorkTime  . '</li>';
+      $timedisplay = $timedisplay . '<li>' . 'London <br>' . $londonTime  . '</li>';
+      $timedisplay = $timedisplay . '<li>' . 'Berlin <br>' . $berlinTime  . '</li>';
+      $timedisplay = $timedisplay . '<li>' . 'Sydney <br>' . $sydneyTime  . '</li>';
+      $timedisplay = $timedisplay . '</ul>';
+
+      $node->field_world_time_zones['und']['0']['value'] = $timedisplay;
     }
   }
+
+  function simplo_events_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'simplo_session_node_form') {
+      $form['field_world_time_zones']['#access'] = 0;
+    }
+  }
+
+
 
 
 
