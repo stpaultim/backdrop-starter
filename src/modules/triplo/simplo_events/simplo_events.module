@@ -2,6 +2,7 @@
 
   function simplo_events_node_presave($node) {
     if ($node->type == 'simplo_session') {
+      print "Module code 2238554";
       backdrop_set_message($message = "This is the Simplo Events Module", $type = 'status', $repeat = TRUE);
 
       if (isset($node->field_time_slot['und'][0]['nid'])) {
