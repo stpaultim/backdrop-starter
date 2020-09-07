@@ -2,10 +2,18 @@
 	border: 1px solid black;
 }
 
-.zone.even {
-	background-color: #D1CCCC;
+.time-zones p {
+	display: none;
+}
+
+.zone {
 	width: 100%;
 	padding: 3px 5px;
+	text-align: center;
+}
+
+.zone.even {
+	background-color: #D1CCCC;
 }
 
 
