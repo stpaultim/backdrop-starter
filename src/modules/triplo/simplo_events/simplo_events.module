@@ -2,9 +2,6 @@
 
   function simplo_events_node_presave($node) {
     if ($node->type == 'simplo_session') {
-      print "Module code 2238554";
-      backdrop_set_message($message = "This is the Simplo Events Module", $type = 'status', $repeat = TRUE);
-
       if (isset($node->field_time_slot['und'][0]['nid'])) {
 
         $old_time = $node->original->field_time_slot['und'][0]['nid'];
@@ -30,7 +27,6 @@
       }
 
       $utcTime = $node->field_date_time['und']['0']['value'];
-      backdrop_set_message('Hi there');
       $mplsTime = date('D m/j g:i a', strtotime('-5 hours', strtotime($utcTime)));
       $sydneyTime = date('D m/j g:i a', strtotime('+15 hours', strtotime($mplsTime)));
       $sfTime = date('D m/j g:i a', strtotime('-2 hours', strtotime($mplsTime)));
