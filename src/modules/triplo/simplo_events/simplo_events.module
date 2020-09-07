@@ -53,7 +53,6 @@
       $form['field_time_zone_listings']['#access'] = 0;
       $form['field_scheduled_time']['#access'] = 0;
       $form['field_time_slot']['#access'] = 0;
-
     }
   }
 
