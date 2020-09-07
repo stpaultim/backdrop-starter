@@ -47,13 +47,16 @@
       $timedisplay = $timedisplay . '<li>' . 'Sydney <br>' . $sydneyTime  . '</li>';
       $timedisplay = $timedisplay . '</ul>';
 
-      $node->field_world_time_zones['und']['0']['value'] = $timedisplay;
+      $node->field_time_zone_listings['und']['0']['value'] = $timedisplay;
     }
   }
 
   function simplo_events_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'simplo_session_node_form') {
-      $form['field_world_time_zones']['#access'] = 0;
+      $form['field_time_zone_listings']['#access'] = 0;
+      $form['field_scheduled_time']['#access'] = 0;
+      $form['field_time_slot']['#access'] = 0;
+
     }
   }
 
