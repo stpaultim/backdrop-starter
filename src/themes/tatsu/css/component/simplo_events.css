@@ -1,9 +1,15 @@
 .time-zones {
 	border: 1px solid black;
+	font-size: 80%;
 }
 
 .time-zones p {
 	display: none;
+}
+
+.city {
+	font-size: 100%;
+	font-weight: 900;
 }
 
 .zone {
