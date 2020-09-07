@@ -8,6 +8,11 @@
 	display: none;
 }
 
+.time-zones .header {
+	font-size: 130%;
+	font-color: #840d0d;
+}
+
 .city {
 	font-size: 100%;
 	font-weight: 900;
