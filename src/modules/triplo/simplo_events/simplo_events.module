@@ -38,14 +38,14 @@
       $berlinTime = date('D m/j g:i a', strtotime('+7 hours', strtotime($mplsTime)));
       $londonTime = date('D m/j g:i a', strtotime('+6 hours', strtotime($mplsTime)));
 
-      $timedisplay = '<ul>';
-      $timedisplay = $timedisplay . '<li>' . 'San Francisco <br>' . $sfTime . '</li>';
-      $timedisplay = $timedisplay . '<li>' . 'Minneapolis <br>' . $mplsTime  . '</li>';
-      $timedisplay = $timedisplay . '<li>' . 'New York <br>' . $newyorkTime  . '</li>';
-      $timedisplay = $timedisplay . '<li>' . 'London <br>' . $londonTime  . '</li>';
-      $timedisplay = $timedisplay . '<li>' . 'Berlin <br>' . $berlinTime  . '</li>';
-      $timedisplay = $timedisplay . '<li>' . 'Sydney <br>' . $sydneyTime  . '</li>';
-      $timedisplay = $timedisplay . '</ul>';
+      $timedisplay = '<div class="time-zones">';
+      $timedisplay = $timedisplay . '<span class="odd">' . 'San Francisco <br>' . $sfTime . '</span><br>';
+      $timedisplay = $timedisplay . '<span class="even">' . 'Minneapolis <br>' . $mplsTime  . '</span><br>';
+      $timedisplay = $timedisplay . '<span class="odd">' . 'New York <br>' . $newyorkTime  . '</span><br>';
+      $timedisplay = $timedisplay . '<span class="even">' . 'London <br>' . $londonTime  . '</span><br>';
+      $timedisplay = $timedisplay . '<span class="odd">' . 'Berlin <br>' . $berlinTime  . '</span><br>';
+      $timedisplay = $timedisplay . '<span class="even">' . 'Sydney <br>' . $sydneyTime  . '</span><br>';
+      $timedisplay = $timedisplay . '</div>';
 
       $node->field_time_zone_listings['und']['0']['value'] = $timedisplay;
     }

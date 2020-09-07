@@ -31,6 +31,7 @@ stylesheets[all][] = css/component/comment.css
 stylesheets[all][] = css/component/caption.css
 stylesheets[all][] = css/component/views.css
 stylesheets[all][] = css/component/recipes.css
+stylesheets[all][] = css/component/simplo_events.css
 stylesheets[all][] = css/basis-component-colors.css
 
 stylesheets[print][] = css/print.css
