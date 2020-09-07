@@ -10,7 +10,9 @@
 
 .time-zones .header {
 	font-size: 130%;
-	font-color: #840d0d;
+	color: #840d0d;
+	font-weight: 900;
+	padding: 15px 5px 10px;
 }
 
 .city {
