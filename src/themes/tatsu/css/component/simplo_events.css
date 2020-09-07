@@ -2,8 +2,10 @@
 	border: 1px solid black;
 }
 
-.time-zones .even {
+.zone.even {
 	background-color: #D1CCCC;
+	width: 100%;
+	padding: 3px 5px;
 }
 
 
