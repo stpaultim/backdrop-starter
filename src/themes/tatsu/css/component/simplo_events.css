@@ -1,6 +1,7 @@
 .time-zones {
 	border: 1px solid black;
 	font-size: 80%;
+	margin: 5%;
 }
 
 .time-zones p {
@@ -18,7 +19,7 @@
 	text-align: center;
 }
 
-.zone.even {
+.zone.odd {
 	background-color: #D1CCCC;
 }
 

@@ -39,6 +39,7 @@
       $londonTime = date('D m/j g:i a', strtotime('+6 hours', strtotime($mplsTime)));
 
       $timedisplay = '<div class="time-zones">';
+      $timedisplay = $timedisplay . '<div class="zone even"> <span class="city">Start Time</span></div><br>';
       $timedisplay = $timedisplay . '<div class="zone odd"> <span class="city">San Francisco, USA</span> <br>' . $sfTime . '</div><br>';
       $timedisplay = $timedisplay . '<div class="zone even"> <span class="city">Minneapolis, USA </span><br>' . $mplsTime  . '</div><br>';
       $timedisplay = $timedisplay . '<div class="zone odd"> <span class="city">New York, USA </span><br>' . $newyorkTime  . '</div><br>';
