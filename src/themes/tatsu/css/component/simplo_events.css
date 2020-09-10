@@ -46,23 +46,23 @@
 }
 
 .view-sessions .two {
-	background-color: grey;
-}
-
-.view-sessions .three {
 	background-color: antiquewhite;
 }
 
-.view-sessions .four {
+.view-sessions .three {
 	background-color: lightskyblue;
 }
 
+.view-sessions .four {
+	background-color: white;
+}
+
 .view-sessions .five {
-	background-color: palegreen;
+	background-color: antiquewhite;
 }
 
 .view-sessions .six {
-	background-color: grey;
+	background-color: lightskyblue;
 }
 
 .view-sessions .seven {
@@ -70,7 +70,7 @@
 }
 
 .view-sessions .eight {
-	background-color: lightskyblue;
+	background-color: antiquewhite;
 }
 
 
