@@ -19,6 +19,7 @@
 }
 
 .time-zones .header {
+	display: block;
 	font-size: 130%;
 	color: #840d0d;
 	font-weight: 900;
@@ -38,6 +39,38 @@
 
 .zone.odd {
 	background-color: #D1CCCC;
+}
+
+.view-sessions .one {
+	background-color: white;
+}
+
+.view-sessions .two {
+	background-color: grey;
+}
+
+.view-sessions .three {
+	background-color: antiquewhite;
+}
+
+.view-sessions .four {
+	background-color: lightskyblue;
+}
+
+.view-sessions .five {
+	background-color: palegreen;
+}
+
+.view-sessions .six {
+	background-color: grey;
+}
+
+.view-sessions .seven {
+	background-color: white;
+}
+
+.view-sessions .eight {
+	background-color: lightskyblue;
 }
 
 
