@@ -46,31 +46,31 @@
 }
 
 .view-sessions .two {
-	background-color: antiquewhite;
+	background-color: #626368;
 }
 
 .view-sessions .three {
-	background-color: lightskyblue;
+	background-color: #6B6F81;
 }
 
 .view-sessions .four {
-	background-color: white;
+	background-color: #54565D;
 }
 
 .view-sessions .five {
-	background-color: antiquewhite;
-}
-
-.view-sessions .six {
-	background-color: lightskyblue;
-}
-
-.view-sessions .seven {
 	background-color: white;
 }
 
+.view-sessions .six {
+	background-color: #626368;
+}
+
+.view-sessions .seven {
+	background-color: #6B6F81;
+}
+
 .view-sessions .eight {
-	background-color: antiquewhite;
+	background-color: #54565D;
 }
 
 
